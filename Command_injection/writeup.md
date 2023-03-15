@@ -75,6 +75,50 @@ How to detect ?
 
 ----------------------------------------
 
-## LAB 1 - OS command injection, simple case
+## LAB 1 - OS command injection, simple case  [APPRENTICE]
+
+```
+This lab contains an OS command injection `vulnerability in the product stock checker`.
+
+The application executes a shell command containing user-supplied product and store IDs, and returns the raw output from the command in its response.
+
+To solve the lab, execute the `whoami` command to determine the name of the current user.
+```
+
+**Solution -**
+
+Vulnerability is in check stock filter 
+
+![image](https://user-images.githubusercontent.com/67383098/225234017-13d55e1d-074c-40e9-ab3e-afea6521d066.png)
+
+On clicking the link, the request & response looks like
+
+![image](https://user-images.githubusercontent.com/67383098/225234846-54839e9f-d6a2-4e36-8b8b-fe493a112676.png)
+
+![image](https://user-images.githubusercontent.com/67383098/225235472-03edc2dd-d895-4e42-9720-46ab3a2445fc.png)
+
+
+
+We need to check which parameter is vulnerable [`productID` or `storeID`]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
