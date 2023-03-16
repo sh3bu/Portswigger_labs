@@ -78,5 +78,9 @@ We get a `302` status code which indicates that it is the password
 
 -----------------------------------------------------------
 
+![image](https://user-images.githubusercontent.com/67383098/225657172-9212db9f-770e-4770-b67e-660f54159238.png)
+
+The hint provided mentions that doing some simple HTTP request header manipulation can bypass this brute force protection. A quick Google search leads to a (page with the correct answer)[https://medium.com/r3d-buck3t/bypass-ip-restrictions-with-burp-suite-fb4c72ec8e9c]: the `X-Forwarded-For` header.
+
 
 
