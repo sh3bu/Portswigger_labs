@@ -144,8 +144,8 @@ We can see that one response has a `302 status code` - `**klaster**` which is th
 
 The two most common ways of preventing brute-force attacks are:
 
-- Locking the account that the remote user is trying to access if they make too many failed login attempts
-- Blocking the remote user's IP address if they make too many login attempts in quick succession
+- **Locking the account that the remote user is trying to access** if they make too many failed login attempts
+- **Blocking the remote user's IP address** if they make too many login attempts in quick succession
 
 **For example, you might sometimes find that your IP is blocked if you fail to log in too many times. In some implementations, the counter for the number of failed attempts resets if the IP owner logs in successfully. This means an attacker would simply have to log in to their own account every few attempts to prevent this limit from ever being reached.**
 
@@ -194,7 +194,34 @@ SOLUTION - username: `carlos` password: `tigger`
 
 ![image](https://user-images.githubusercontent.com/67383098/226532002-7a91fd21-c7be-44c4-88ec-e8a3c4bfc2a5.png)
 
+----------------------------------------------------------------------
+ 
+# Account locking:
+ 
+ Locking an account offers a certain amount of protection against targeted brute-forcing of a specific account. However, this approach fails to adequately prevent brute-force attacks in which the attacker is just trying to gain access to any random account they can.
 
+
+ 
+ > Account locking also fails to protect against `credential stuffing attacks`. 
+ 
+ **Credential Stuffing attack** -
+ 
+This involves using a massive dictionary of username:password pairs, composed of genuine login credentials stolen in data breaches. Credential stuffing relies on 
+the fact that many people reuse the same username and password on multiple websites and, therefore, there is a chance that some of the compromised credentials in
+the dictionary are also valid on the target website. Account locking does not protect against credential stuffing because each username is only being attempted once.
+Credential stuffing is particularly dangerous because it can sometimes result in the attacker compromising many different accounts with just a single automated attack.
+
+## LAB 5 - Username enumeration via account lock
+ 
+ ```
+ This lab is vulnerable to username enumeration. It uses account locking, but this contains a logic flaw. To solve the lab, enumerate a valid username, brute-force this user's password, then access their account page.
+
+Candidate usernames
+Candidate passwords
+ ```
+ 
+ 
+ 
 
 
 
