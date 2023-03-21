@@ -166,7 +166,7 @@ Advanced users may want to solve this lab by using a macro or the Turbo Intruder
 
 ![image](https://user-images.githubusercontent.com/67383098/226527797-8688214b-2681-41df-863c-ee7c8847c126.png)
 
-
+**Concept**
 > The concept behind this lab is that after 2 failed login attempts, our IP gets blocked for 1 minute. To evade this while bruteforcing carlos's password , we need to > bruteforce 2 incorrect passwords then login with the correct username & password of wiener, then again 2 incorrect attempts and so on.
 
 > 1st req -` wiener` & `peter`
@@ -221,10 +221,16 @@ Credential stuffing is particularly dangerous because it can sometimes result in
 Candidate usernames
 Candidate passwords
  ```
+**Concept**
+ 
+ > The concept in this is that 
+ > bruteforce with a wrong username multiple times with any random password , it shows  `Invalid username or password`
+ > bruteforce with correct username multiple times with any random password, it shows `You have made too many incorrect login attempts` indicating *it is a right password*  
+ > Once correct username is found we can bruteforce the password , we can find it since it will have a `302` status code
  
  ![image](https://user-images.githubusercontent.com/67383098/226622749-a8603e99-7f15-4aef-b3a8-748d8b9d130d.png)
 
-I noticed that when i bruteforce with invalid username and password, the account does not lock.
+I noticed that when I bruteforce with invalid username and password, the account does not lock.
 Only for valid usernames , if we bruteforce the account gets locked.
 
 **Username Enumeration**
@@ -232,8 +238,10 @@ Only for valid usernames , if we bruteforce the account gets locked.
 ![image](https://user-images.githubusercontent.com/67383098/226625410-c23bc089-4a65-49a7-a66d-82cb8a18ff5b.png)
 
 Attack type - `Cluster Bomb`
+ 
 Payload 1 - Given list of usernames
-Payload 2 - Null payloads
+ 
+Payload 2 - Null payloads (generate 5)
 
 
 
