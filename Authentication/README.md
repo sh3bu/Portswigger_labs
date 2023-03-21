@@ -214,12 +214,29 @@ Credential stuffing is particularly dangerous because it can sometimes result in
 ## LAB 5 - Username enumeration via account lock
  
  ```
+ DESCRIPTION  - 
+ 
  This lab is vulnerable to username enumeration. It uses account locking, but this contains a logic flaw. To solve the lab, enumerate a valid username, brute-force this user's password, then access their account page.
 
 Candidate usernames
 Candidate passwords
  ```
  
+ ![image](https://user-images.githubusercontent.com/67383098/226622749-a8603e99-7f15-4aef-b3a8-748d8b9d130d.png)
+
+I noticed that when i bruteforce with invalid username and password, the account does not lock.
+Only for valid usernames , if we bruteforce the account gets locked.
+
+**Username Enumeration**
+
+![image](https://user-images.githubusercontent.com/67383098/226625410-c23bc089-4a65-49a7-a66d-82cb8a18ff5b.png)
+
+Attack type - `Cluster Bomb`
+Payload 1 - Given list of usernames
+Payload 2 - Null payloads
+
+
+
  
  
 
