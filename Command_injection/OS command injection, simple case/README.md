@@ -1,3 +1,6 @@
+
+# LAB 1 - OS command injection, simple case  
+
 ```
 This lab contains an OS command injection `vulnerability in the product stock checker`.
 
