@@ -1,3 +1,19 @@
+# Account locking:
+ 
+ Locking an account offers a certain amount of protection against targeted brute-forcing of a specific account. However, this approach fails to adequately prevent brute-force attacks in which the attacker is just trying to gain access to any random account they can.
+
+
+ 
+ > Account locking also fails to protect against `credential stuffing attacks`. 
+ 
+ **Credential Stuffing attack** -
+ 
+This involves using a massive dictionary of username:password pairs, composed of genuine login credentials stolen in data breaches. Credential stuffing relies on 
+the fact that many people reuse the same username and password on multiple websites and, therefore, there is a chance that some of the compromised credentials in
+the dictionary are also valid on the target website. Account locking does not protect against credential stuffing because each username is only being attempted once.
+Credential stuffing is particularly dangerous because it can sometimes result in the attacker compromising many different accounts with just a single automated attack.
+
+
 ## LAB DESCRIPTION :
 
 ![image](https://user-images.githubusercontent.com/67383098/226798530-f168966d-220f-47b8-96a5-ee5c9de046a1.png)
