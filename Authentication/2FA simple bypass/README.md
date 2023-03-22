@@ -25,17 +25,23 @@ Click `Email client` to open email and get the **4 digit OTP**
 
 Paste the OTP in the field box & click `Log in`
 
-![image](https://user-images.githubusercontent.com/67383098/226813609-865d9d45-2af9-455f-85d7-406c0beecb7b.png)
-
 We have sucessfully logged in as `wiener` . 
 
 > Note the url of the page - `/my-account`
 
+![image](https://user-images.githubusercontent.com/67383098/226813609-865d9d45-2af9-455f-85d7-406c0beecb7b.png)
+
+Now lets bypass the 2FA of `carlos` and log in.
+
+After entering the username and password , the request sent is as below
+
 ![image](https://user-images.githubusercontent.com/67383098/226814517-77aef57f-260e-421b-9a31-e46576b7973b.png)
 
-
-
+Next step, it asks for `4 digit OTP` .
 ![image](https://user-images.githubusercontent.com/67383098/226814613-b3450250-56c0-4c3b-b86f-c2ac54214477.png)
+
+ Capture the request & modify the uri path from `/login` to `/my-account` & click forward button in burp.
+ 
 
 ![image](https://user-images.githubusercontent.com/67383098/226814706-46f9c671-806e-4643-aaa9-d0eb747e9302.png)
 
