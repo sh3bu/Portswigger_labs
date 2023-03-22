@@ -4,41 +4,69 @@
 
 ## Solution :
 
+First we'll understand the workflow by logging in as wiener and taking a look at the requests made .
+
+
 ![image](https://user-images.githubusercontent.com/67383098/226844353-d15f82fb-1b9a-440b-b4aa-9b1c59a98691.png)
 
-![image](https://user-images.githubusercontent.com/67383098/226845283-54e0039a-d80c-405f-b846-646ef84461cd.png)
+- 1st request (**POST**)
+ 
+ ![image](https://user-images.githubusercontent.com/67383098/226983000-fd93f052-15ac-4711-a661-83f33784bff5.png)
+ 
+- In the 2nd request (**GET**) , we see a `Cookie : verify=wiener` being added which indicates that we are already
 
-![image](https://user-images.githubusercontent.com/67383098/226846020-f8a53c90-2b1c-4d65-898a-3122399c7f54.png)
+![image](https://user-images.githubusercontent.com/67383098/226983275-854c01ff-9929-48c6-bd79-36bf8cedddb5.png)
 
-![image](https://user-images.githubusercontent.com/67383098/226846754-b0ca4c45-2877-4a72-b157-6de2c35fe9e7.png)
+- In the 3rd request , we again see that cookie being added,
+
+![image](https://user-images.githubusercontent.com/67383098/226983807-be5c2bf3-4cdb-42bc-a534-04272c1565f7.png)
+
+After forwarding all the 3 packets, the webpage asks us for a `4 digit OTP` to login, which we can get via the `Email Client`.
+
+We get the OTP as `0138`
+
+![image](https://user-images.githubusercontent.com/67383098/226984439-e6420e86-44d8-487e-9ee6-9f1b9f68502d.png)
+
+Click `Login` 
+
+![image](https://user-images.githubusercontent.com/67383098/226985212-9259cb5c-5541-4c6a-86c4-df0c068dfe22.png)
 
 
-![image](https://user-images.githubusercontent.com/67383098/226846666-91a62645-696d-406f-8557-94ef35da09d5.png)
+We now have a `mfa-code` parameter which indicates the OTP along with the session cookie .Forward the packet , we are logged in as wiener.
 
-It means 2fa created for wiener
+![image](https://user-images.githubusercontent.com/67383098/226985502-e2ac90b1-9555-4cb5-aa9f-96aee8812af5.png)
 
-![image](https://user-images.githubusercontent.com/67383098/226847521-ee03e762-ff77-4c2b-985b-8a85fd6c2099.png)
 
-What if?
+**Now the catch is what happens if we logout repeat the same process but by changing the `verify=wiener` to `verify=carlos` in every request (both GET & POST)**
 
-![image](https://user-images.githubusercontent.com/67383098/226848322-85c977d4-0098-4187-873b-927cf1ea9e70.png)
 
-![image](https://user-images.githubusercontent.com/67383098/226848864-df9a5ba2-4f9c-4549-8ee3-fc619eb7139c.png)
+![image](https://user-images.githubusercontent.com/67383098/226985998-8bd21b44-77f9-4acb-8445-8a7d8df6272b.png)
 
-Response 
+![image](https://user-images.githubusercontent.com/67383098/226986131-4acbaec0-cc3c-47e6-9b01-96eeed652ada.png)
 
-![image](https://user-images.githubusercontent.com/67383098/226848960-6f078836-6aac-45c6-9f9f-00eaffee84f9.png)
+![image](https://user-images.githubusercontent.com/67383098/226986250-e3fbf938-4d60-4548-9b13-6cc4e75e76b0.png)
 
-No error is shown whicih means 
+After forwarding all the packets, we don't see any error message which means OTP for carlos has been created .
 
-Send the POST
+To login as carlos we have to 
 
-![image](https://user-images.githubusercontent.com/67383098/226849377-6d085b80-61d2-407c-9c06-08008c0c285b.png)
+- Enter incorrect  OTP and click `login`
+- Capture the request and change `verify=weiner` to `verify=carlos`.
+- Atlast bruteforce the OTP , find which OTP has `302 status code`.
 
-![image](https://user-images.githubusercontent.com/67383098/226849674-ea3f4654-c509-41ae-86a6-ab252ed6932b.png)
+![image](https://user-images.githubusercontent.com/67383098/226987054-39231246-fb3d-4789-9a6a-ba6d4cb0736f.png)
 
-Attack Type - `Simple list` 
-Payload type - `Numbers` (0000-90999)
-Payload 1 - `mfa-code` 
+
+Since I don't have burp pro , I used `ffuf` TO FUZZ THE otp faster.
+
+
+```
+ffuf -X POST -u "https://0a0e008f04325f93c50b2233001b0024.web-security-academy.net/login2" -H "Cookie: verify=carlos; session=NB5SwamM383GwnD0MbTv7BXB5WeA3fIv" -H "Content-Type: application/x-www-form-urlencoded" -d "mfa-code=FUZZ" -w s; session=NB5SwamM383GwnD0MbTv7BXB5WeA3fIv" -H "Content-Type: application/x-www-form-urlencoded" -d "mfa-code=FUZZ" -w /home/noah/numbers.txt -fc 400,401,200
+```
+![image](https://user-images.githubusercontent.com/67383098/226980304-877fd06a-6af2-4107-bdd5-40ad4d25bd05.png)
+
+Enter the OTP of carlos & we have successfully solved the lab.
+
+![image](https://user-images.githubusercontent.com/67383098/226980655-4eb0e0d2-af3c-4769-884b-8d48ad22c47b.png)
 
 
