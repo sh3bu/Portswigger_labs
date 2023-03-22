@@ -8,12 +8,12 @@ Another way websites try to prevent brute-force attacks is through user rate lim
 
 **As the limit is based on the rate of HTTP requests sent from the user's IP address, it is sometimes also possible to bypass this defense if you can work out how to guess multiple passwords with a single request.**
 
-## LAB DESCRIPTION :
+## Lab Description :
 
 ![image](https://user-images.githubusercontent.com/67383098/226794213-7d7ec96b-4af3-4b21-9d9d-2a634f2ea048.png)
 
 
-## SOLUTION :
+## Solution :
 
 Capture the request -> send to repeater
 
