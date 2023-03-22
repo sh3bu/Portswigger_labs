@@ -11,16 +11,29 @@ If the user is first prompted to enter a password, and then prompted to enter a 
 
 ## Solution :
 
+First we login as `wiener:peter` and see how the functionality works
+
 ![image](https://user-images.githubusercontent.com/67383098/226813201-1f4d53c1-caa5-4e99-97df-b9b57f030c6d.png)
+
+On successfull confirmation of username and password, it asks for `4 digit OTP`
 
 ![image](https://user-images.githubusercontent.com/67383098/226813423-10fa0a37-c044-49b8-bbf6-99f3e669d9e2.png)
 
+Click `Email client` to open email and get the **4 digit OTP**
+
 ![image](https://user-images.githubusercontent.com/67383098/226813486-1890f753-f36c-4601-9560-c12180fe74ad.png)
+
+Paste the OTP in the field box & click `Log in`
 
 ![image](https://user-images.githubusercontent.com/67383098/226813609-865d9d45-2af9-455f-85d7-406c0beecb7b.png)
 
+We have sucessfully logged in as `wiener` . 
+
+> Note the url of the page - `/my-account`
 
 ![image](https://user-images.githubusercontent.com/67383098/226814517-77aef57f-260e-421b-9a31-e46576b7973b.png)
+
+
 
 ![image](https://user-images.githubusercontent.com/67383098/226814613-b3450250-56c0-4c3b-b86f-c2ac54214477.png)
 
