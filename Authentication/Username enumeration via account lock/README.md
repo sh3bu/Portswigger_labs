@@ -37,8 +37,45 @@ Only for valid usernames if we bruteforce, the account gets locked.
 Send the request to intruder -
 
 Attack Type - `Cluster Bomb`
+
 Payload 1- $Username$ - `List of usernames`
+
 Payload 2 - Password$$ - `Null payloads`
 
+![image](https://user-images.githubusercontent.com/67383098/227200015-0763773e-ee53-466c-ae44-207a16ed737e.png)
+
+
+
 Click `Start attack` 
+
+![image](https://user-images.githubusercontent.com/67383098/227199876-eabd1b99-9fcd-4408-acb2-0622ec4d4ffd.png)
+
+Now we got the username as - `arlington`
+
+Now we need to find the **password**
+
+- Update the username parameter to `arlington`
+- Add the password parameter for bruteforcing with given list of passwords.
+
+We have the results but we can't figure out which was the password , so we have to use the `Grep - Extract` method. Follow the steps,
+
+Attack Type - `sniper`
+Payload 1 - password parameter  [given list of passwords]
+
+Got to `Options` -> `Grep-Extract` -> check the `Extract the following items from responses` -> Click `Add` button to open a dialog  which provides us a response . Highlight the line `Invalid username or password`
+
+Now double click the `warning column` one response stands out. It doesn't have any warnings which means it is the password and we have logged in. 
+
+![image](https://user-images.githubusercontent.com/67383098/227201759-9222f5a1-514f-45be-9262-75839c73ead8.png)
+
+![image](https://user-images.githubusercontent.com/67383098/227203837-a45ec2db-baf6-4c4c-80a3-3db25bc7f5dc.png)
+
+
+
+We have one password from the list which didn't have the warning of `Invalid username or password`.
+
+![image](https://user-images.githubusercontent.com/67383098/227201199-2d883be2-3541-4393-8b9c-2fb46ff3f206.png)
+
+
+
 
