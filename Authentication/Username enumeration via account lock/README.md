@@ -64,8 +64,7 @@ Attack Type - `sniper`
 Payload 1 - password parameter  [given list of passwords]
 
 Got to `Options` -> `Grep-Extract` -> check the `Extract the following items from responses` -> Click `Add` button to open a dialog  which provides us a response . Highlight the line `Invalid username or password`
-
-Now double click the `warning column` one response stands out. It doesn't have any warnings which means it is the password and we have logged in. 
+ 
 
 ![image](https://user-images.githubusercontent.com/67383098/227201759-9222f5a1-514f-45be-9262-75839c73ead8.png)
 
@@ -73,9 +72,10 @@ Now double click the `warning column` one response stands out. It doesn't have a
 
 
 
-We have one password from the list which didn't have the warning of `Invalid username or password`.
+We have one password from the list which didn't have the warning of `Invalid username or password`, it means we have succesfullt logged in.
 
-![image](https://user-images.githubusercontent.com/67383098/227201199-2d883be2-3541-4393-8b9c-2fb46ff3f206.png)
+
+![image](https://user-images.githubusercontent.com/67383098/227204607-1dc6e37e-0309-447a-8bff-2c152f235e8f.png)
 
 
 
