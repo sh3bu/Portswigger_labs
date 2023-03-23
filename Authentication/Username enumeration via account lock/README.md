@@ -60,6 +60,7 @@ Now we need to find the **password**
 We have the results but we can't figure out which was the password , so we have to use the `Grep - Extract` method. Follow the steps,
 
 Attack Type - `sniper`
+
 Payload 1 - password parameter  [given list of passwords]
 
 Got to `Options` -> `Grep-Extract` -> check the `Extract the following items from responses` -> Click `Add` button to open a dialog  which provides us a response . Highlight the line `Invalid username or password`
