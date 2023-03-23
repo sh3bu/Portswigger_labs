@@ -11,3 +11,4 @@ Some websites attempt to prevent this by automatically logging a user out if the
 
 ## Solution :
 
+> Blog on **Burp Macros**  - https://akshita-infosec.medium.com/burp-macros-what-why-how-151df8901641
