@@ -68,7 +68,6 @@ Got to `Options` -> `Grep-Extract` -> check the `Extract the following items fro
 
 ![image](https://user-images.githubusercontent.com/67383098/227201759-9222f5a1-514f-45be-9262-75839c73ead8.png)
 
-![image](https://user-images.githubusercontent.com/67383098/227203837-a45ec2db-baf6-4c4c-80a3-3db25bc7f5dc.png)
 
 
 
@@ -77,6 +76,9 @@ We have one password from the list which didn't have the warning of `Invalid use
 
 ![image](https://user-images.githubusercontent.com/67383098/227204607-1dc6e37e-0309-447a-8bff-2c152f235e8f.png)
 
+
+
+![image](https://user-images.githubusercontent.com/67383098/227203837-a45ec2db-baf6-4c4c-80a3-3db25bc7f5dc.png)
 
 
 
