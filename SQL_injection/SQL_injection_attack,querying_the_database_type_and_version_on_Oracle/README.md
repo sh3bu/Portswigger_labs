@@ -9,7 +9,7 @@
 
 Here we can find out the number of columns that the web app is querying & also determine the columns which have text data but to retreive a column data  we need to know the table name.
 
-In oracle there is a default table called **DUAL**. Using that we can retreive column data.
+> In oracle there is a default table called **DUAL**. Using that we can retreive column data.
 
 #### Determine the number of columns 
 
