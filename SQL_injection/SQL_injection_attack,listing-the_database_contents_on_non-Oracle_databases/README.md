@@ -22,7 +22,7 @@ SELECT * FROM information_schema.columns WHERE table_name = 'Users'
 ![image](https://user-images.githubusercontent.com/67383098/234173842-080419e3-bb62-4507-b6c2-4d30888d4ce8.png)
 
 
-#### Determine te number of columns -
+#### Determine the number of columns -
 
 **ORDER BY 3**
 
