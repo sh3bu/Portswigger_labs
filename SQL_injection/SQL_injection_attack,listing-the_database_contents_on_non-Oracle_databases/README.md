@@ -83,9 +83,9 @@ Now we get the username and password of all users.
 
 ![image](https://user-images.githubusercontent.com/67383098/234250737-85288dcd-13a8-406b-82c7-1198ab231fb6.png)
 
-carlos - `hfs0tq3xzvdz2awja6bn`
-wiener - 7qsyjg4sbbxt16easf7l``
 administrator - `a80zs35scefit206tw5s`
+carlos - `hfs0tq3xzvdz2awja6bn`
+wiener - `7qsyjg4sbbxt16easf7l`
 
 Now login as administrator,
 
