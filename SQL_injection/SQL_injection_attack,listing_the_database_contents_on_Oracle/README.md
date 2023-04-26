@@ -26,7 +26,7 @@ SELECT * FROM someTable WHERE category = '<CATEGORY>' ORDER BY 3 --
 Both columns have text data
 
 ```sql
-SELECT * FROM someTable WHERE category = '<CATEGORY>' SELECT 'abc','def' FROM DUAL--
+SELECT * FROM someTable WHERE category = '<CATEGORY>' UNION SELECT 'abc','def' FROM DUAL--
 ```
 
 ![image](https://user-images.githubusercontent.com/67383098/234493878-4160908e-fddd-4269-a091-395850b55e44.png)
