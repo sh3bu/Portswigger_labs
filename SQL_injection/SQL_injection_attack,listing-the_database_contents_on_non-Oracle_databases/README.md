@@ -45,6 +45,11 @@ Both the columns contain text data.
 
 #### List tables -
 
+From the information schema tables, there are some default columns.
+
+![image](https://user-images.githubusercontent.com/67383098/234646578-ad156354-c5cb-49a0-a765-89f1f835b80a.png)
+
+
 ```sql
 SELECT * FROM someTable WHERE category = '<CATEGORY>' UNION SELECT table_name,NULL FROM information_schema.tables--
 ```
