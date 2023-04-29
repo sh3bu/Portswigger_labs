@@ -123,13 +123,16 @@ Automate this  -
 5. Payload 2 type - Bruteforcer [min & max length = 1]
 
 
+In the filter settings, add the search item as `Welcome`
+
+![image](https://user-images.githubusercontent.com/67383098/235315210-1a388b10-d201-4b58-8fa9-9c39254ea64f.png)
+
+Now we get 20 differnt payloads which give us the **Welcome back** option.
+
+![image](https://user-images.githubusercontent.com/67383098/235315270-0e3b7212-9292-4123-b8e9-00ab6f82efde.png)
 
 
-
-
-
-
-
+So the password is - ``
 
 
 
