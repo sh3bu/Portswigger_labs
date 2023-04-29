@@ -131,10 +131,12 @@ Now we get 20 differnt payloads which give us the **Welcome back** option.
 
 ![image](https://user-images.githubusercontent.com/67383098/235315270-0e3b7212-9292-4123-b8e9-00ab6f82efde.png)
 
+Araange the payload number and write the payload2 alphabets (password characters) in order .
 
-So the password is - ``
+So the password is - `92fvq10oaxi0vjhxk7yw`
 
 
+![image](https://user-images.githubusercontent.com/67383098/235318275-f500bdde-4543-4af3-8a5f-6b3d613052a4.png)
 
 
 
