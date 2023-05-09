@@ -41,11 +41,13 @@ The reponse looks like this ,
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/6dab0448-ed2a-4059-9c8f-75cee9250a17)
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/3c891294-4036-4f00-b5f4-da0982fa05cc)
-
 We are logged in as *wiener* 
 
-#### What happens if we change the cookie value to `Admin=true` ?
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/3c891294-4036-4f00-b5f4-da0982fa05cc)
+
+
+## What happens if we change the cookie value to `Admin=true` ?
 
 We modify all the requests where the cookie is set to `Admin=false` to Admin=true`
 
