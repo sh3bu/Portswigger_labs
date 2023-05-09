@@ -43,7 +43,7 @@ The reponse looks like this ,
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/3c891294-4036-4f00-b5f4-da0982fa05cc)
 
-We are logged in as *wiener* but .
+We are logged in as *wiener* 
 
 #### What happens if we change the cookie value to `Admin=true` ?
 
