@@ -28,7 +28,7 @@ POST / HTTP/1.1
 X-Original-URL: /admin/deleteUser
 ```
 
-Top bypass this 403, we should remove the **/admin** which is with the **GET** method in the request & add the **X-Original-Url : /admin** to the body of the request.
+Top bypass this 403, we should remove the **/admin** which is with the **GET** method in the URI in the request & add the **X-Original-Url : /admin** to the body of the request.
 
 Common mistake is that we add the endpoint both in the X-Original-Url & also at the GET method. 
 
