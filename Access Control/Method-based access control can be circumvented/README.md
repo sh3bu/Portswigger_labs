@@ -8,7 +8,7 @@
 In this lab we exploit the flaw of  **Method based access control**. Some websites may enforce access control to restrict access to specific URLs and HTTP methods based on the user's role like ,
 
 ```http
-restricting access to specific URLs and HTTP methods based on the user's role
+DENY: POST, /admin/deleteUser, managers
 ```
 
 Here it blocks the *GET* requests to the  URL */admin/delete*.
