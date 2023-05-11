@@ -9,16 +9,12 @@ The two most common ways of preventing brute-force attacks are:
 
 ## LAB 4 - Broken brute-force protection, IP block
 
-```
-This lab is vulnerable due to a logic flaw in its password brute-force protection. To solve the lab, brute-force the victim's password, then log in and access their account page.
+## Lab Description : 
 
-Your credentials: wiener:peter
-Victim's username: carlos
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/c1d672dc-e505-4fcc-8094-a0cbe6f549a1)
 
-- Candidate passwords
+## Solution :
 
-Advanced users may want to solve this lab by using a macro or the Turbo Intruder extension. However, it is possible to solve the lab without using these advanced features.
-```
 ![image](https://user-images.githubusercontent.com/67383098/226528347-f0566be7-28e0-4b47-9a55-29e1728747c7.png)
 
 
