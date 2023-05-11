@@ -15,18 +15,19 @@ Here it blocks the *GET* requests to the  URL */admin/delete*.
 
 Using method based access control, we can *bypass this by changing the HTTP request method*
 
-
-### Steps -
-
-```
-This lab provides the administrator credentials to analyse the workflow of granting and revoking administrative permissions to users. It basically is just a form to select a user and using an Upgrade or Downgrade button:
-
-In the background, POST requests are sent to /admin-roles. In a lot of applications, GET and POST requests can be used fairly interchangably.
+In a lot of applications, GET and POST requests can be used fairly interchangably.
 
 For example, in PHP there are special global variables $_GET and $_POST that will be filled with arguments of GET and POST requests respectively. There is a third similar variable $_REQUEST, which will be filled with arguments of either GET or POST requests or cookie values (I believe in this order by default, but this is configurable).
 
 If access control decisions are based on the method verb alone, this can be used to circumvent these controls.
-```
+
+### Steps -
+
+
+This lab provides the administrator credentials to analyse the workflow of granting and revoking administrative permissions to users. It basically is just a form to select a user and using an Upgrade or Downgrade button:
+
+In the background, POST requests are sent to /admin-roles. 
+
 Now we have logged in as administrator.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/bc2ae963-230b-4a67-a090-368599943182)
