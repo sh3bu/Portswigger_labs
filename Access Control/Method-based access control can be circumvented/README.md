@@ -28,7 +28,7 @@ This lab provides the administrator credentials to analyse the workflow of grant
 
 In the background, POST requests are sent to /admin-roles. 
 
-Now we have logged in as administrator.
+Nowusing the credentials `administrator:admin` we have logged in as administrator.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/bc2ae963-230b-4a67-a090-368599943182)
 
