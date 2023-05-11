@@ -18,8 +18,15 @@ Using method based access control, we can *bypass this by changing the HTTP requ
 
 ### Steps -
 
-The lab tells us to get familiarized with the admin page with the credentials `administrator:admin`.
+```
+This lab provides the administrator credentials to analyse the workflow of granting and revoking administrative permissions to users. It basically is just a form to select a user and using an Upgrade or Downgrade button:
 
+In the background, POST requests are sent to /admin-roles. In a lot of applications, GET and POST requests can be used fairly interchangably.
+
+For example, in PHP there are special global variables $_GET and $_POST that will be filled with arguments of GET and POST requests respectively. There is a third similar variable $_REQUEST, which will be filled with arguments of either GET or POST requests or cookie values (I believe in this order by default, but this is configurable).
+
+If access control decisions are based on the method verb alone, this can be used to circumvent these controls.
+```
 Now we have logged in as administrator.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/bc2ae963-230b-4a67-a090-368599943182)
@@ -46,23 +53,29 @@ Reload the page & capture the request & send it to repeater.
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/57fabd90-75e5-49af-a1b9-9b3f3bbf0f73)
 
 
-**Our goal is to exploit the flawed access controls to promote yourself to become an administrator.**
+**Our goal is to exploit the flawed access controls to promote ourself (wiener) to become an administrator.**
 
 So we can try to perform the role changing action as wiener by pasting the cookie value of wiener in the request made by admin to change the privileges !
 
 Cookie of admin -   `6siUFNzqgvZGuGPXfxu7lFIiDXgNKdF5`
 Cookie of wiener - `T0lAJAlHhdoNt8LZIK7VB45FxcSyawzE`
 
-The response is **401 - Unauthorized**
+So we change the cookie value of admin with wiener & send the request, we get the response as **401 - Unauthorized**
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/cc3e41cd-b53f-4b51-89b9-a16747e5a157)
+**Request** -
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/25a09d45-25f2-4e9d-8966-0ea75a7c4eda)
+
+**Response** -
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a1fd1499-55d4-4c6b-ae48-f3dc53f85b32)
 
 Since this lab is based on Method-Based-Access control bypass, we can try to change the request from **POST** to **GET**. We can do this by `Right click on request` -> Click `Change request method` option.
 
 Now it changes to a *GET* request,
 
 ```http
-GET /admin-roles?username=carlos&action=upgrade HTTP/2
+GET /admin-roles?username=wiener&action=upgrade HTTP/2
 Host: 0a6b00020427b34c8392bbf9005e002b.web-security-academy.net
 Cookie: session=T0lAJAlHhdoNt8LZIK7VB45FxcSyawzE
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
@@ -80,9 +93,15 @@ Te: trailers
 Connection: close
 ```
 
+We now see that w have solve the lab.
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/b74b636a-e128-47ab-a07d-eeccf84b0dbc)
 
+But wait ! If we are promoted to admin then we must havethe link to admin panel right ?
 
+So refresh the page, we now see the link to admin panel.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/ad857bca-d57a-4884-96ff-a09fbbded332)
 
 
 
