@@ -1,14 +1,10 @@
 ## LAB 3 - Username enumeration via response timing
 
-```
-This lab is vulnerable to username enumeration using its response times. To solve the lab, enumerate a valid username, brute-force this user's password, then access their account page.
+## Lab Description :
 
-Your credentials: wiener:peter
-Candidate usernames
-Candidate passwords
 
-HINT - To add to the challenge, the lab also implements a form of IP-based brute-force protection. However, this can be easily bypassed by manipulating HTTP request headers.
-```
+
+## Solution :
 
 We try to fuzz the username and password like the previous lab  
 
