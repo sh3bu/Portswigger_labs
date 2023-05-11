@@ -37,6 +37,6 @@ Now remove all the added parameters and change it to `X-Forwarded-For` and `pass
 
 ![image](https://user-images.githubusercontent.com/67383098/226357386-aa2570d4-3983-4257-8898-d150bac382f0.png)
 
-We can see that one response has a `302 status code` - `**klaster**` which is the password.
+We can see that one response has a `302 status code` - `klaster` which is the password.
 
 ![image](https://user-images.githubusercontent.com/67383098/226357574-4eb25461-ecf7-4dfa-a8b0-58747e4858de.png)
