@@ -40,7 +40,7 @@ Click on any action && capture the request and send it top repeater as it may co
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a4fb6cb6-3695-48fd-8f43-f46bce773105)
 
-We can see that in this *POST* request we have a parameter called **username=carlos** & **action=upgrade*
+We can see that in this *POST* request we have a parameter called **username=carlos** & **action=upgrade**
 
 The above reqest upgrades the privileges of carlos user.
 
@@ -50,9 +50,6 @@ Now **Log out of admin user and try loggin in as wiener**
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/cfce931f-aad7-401c-a435-0fa6443f1c1c)
 
 Reload the page & capture the request & send it to repeater.
-
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/57fabd90-75e5-49af-a1b9-9b3f3bbf0f73)
-
 
 **Our goal is to exploit the flawed access controls to promote ourself (wiener) to become an administrator.**
 
@@ -65,7 +62,7 @@ So we change the cookie value of admin with wiener & send the request, we get th
 
 **Request** -
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/25a09d45-25f2-4e9d-8966-0ea75a7c4eda)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/42b75041-8213-4831-80ee-fbe1ea4c3ed7)
 
 **Response** -
 
@@ -94,7 +91,7 @@ Te: trailers
 Connection: close
 ```
 
-We now see that w have solve the lab.
+We now see that we have solve the lab.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/b74b636a-e128-47ab-a07d-eeccf84b0dbc)
 
