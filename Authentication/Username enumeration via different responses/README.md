@@ -6,14 +6,12 @@
 
 ## LAB 1 - Username enumeration via different responses
 
-```
-This lab is vulnerable to username enumeration and password brute-force attacks. It has an account with a predictable username and password, which can be found in the following wordlists:
+## Lab Description :
 
-Candidate usernames
-Candidate passwords
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/8534cefc-0f1c-438e-b880-b1aeac3871e4)
 
-To solve the lab, enumerate a valid username, brute-force this user's password, then access their account page.
-```
+
+## Solution :
 
 The login looks like this,
 
