@@ -33,7 +33,7 @@ Now in the `My Account` page , click on the link , capture the request and modif
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/58768fb5-202f-442b-aacc-523571af90d7)
 
 
-API key of carlos - `9FLbgOm1kRjJoisnIuYN51HHtQdtOwYZ`
+In the response  now we get the API key of carlos - `9FLbgOm1kRjJoisnIuYN51HHtQdtOwYZ`
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/27a8d6c4-c551-431d-b9c3-afb26ce6404c)
 
