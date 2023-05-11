@@ -2,6 +2,7 @@
 
 ## Lab Description :
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/83f4c5c6-e909-4787-9926-6daac8822d37)
 
 
 ## Solution :
