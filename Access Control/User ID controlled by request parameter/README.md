@@ -17,5 +17,16 @@ When we login we get to see the API key of wiener - `T9VQGi3yf81cho2IzdP5jN61hT9
 
 To solve the lab , we need to retreive the API key of carlos user.
 
+When we click on `My Account` after loggin in as wiener, a request is sent like this
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/8c2b453b-d334-4af8-b1d2-a869eed06f7e)
+
+It contains `?id=wiener` parameter.
+
+Change the value to `carlos` , we get the API key of carlos and thus solved the lab
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/b1b61def-c9cc-4865-998f-828d80e7262e)
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/944e43d5-5799-46c4-aced-2f35a3a48854)
 
  
