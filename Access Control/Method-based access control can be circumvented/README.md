@@ -18,18 +18,67 @@ Using method based access control, we can *bypass this by changing the HTTP requ
 
 ### Steps -
 
-We have two set of credentials given, first lets try logging in as admin and see the requests and responses being made.
+The lab tells us to get familiarized with the admin page with the credentials `administrator:admin`.
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/df9dfa56-4427-4419-9a14-457c7868367f)
-
-
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/1fc1357f-5c0e-4cbb-aedd-a9534644dfd8)
-
-
-Nothing fishy.Now we have logged in as administrator.
+Now we have logged in as administrator.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/bc2ae963-230b-4a67-a090-368599943182)
 
+We see that there is a link to *admin panel*. Clicking on admin panel takes us to this page where we can upgrade  or downgrade the privileges of a user.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a899bc23-32ad-4e54-8f5b-8d648f1f05b1)
+
+Click on any action && capture the request and send it top repeater as it may come handy later.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a4fb6cb6-3695-48fd-8f43-f46bce773105)
+
+We can see that in this *POST* request we have a parameter called **username=carlos** & **action=upgrade*
+
+The above reqest upgrades the privileges of carlos user.
+
+
+Now **Log out of admin user and try loggin in as wiener**
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/cfce931f-aad7-401c-a435-0fa6443f1c1c)
+
+Reload the page & capture the request & send it to repeater.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/57fabd90-75e5-49af-a1b9-9b3f3bbf0f73)
+
+
+**Our goal is to exploit the flawed access controls to promote yourself to become an administrator.**
+
+So we can try to perform the role changing action as wiener by pasting the cookie value of wiener in the request made by admin to change the privileges !
+
+Cookie of admin -   `6siUFNzqgvZGuGPXfxu7lFIiDXgNKdF5`
+Cookie of wiener - `T0lAJAlHhdoNt8LZIK7VB45FxcSyawzE`
+
+The response is **401 - Unauthorized**
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/cc3e41cd-b53f-4b51-89b9-a16747e5a157)
+
+Since this lab is based on Method-Based-Access control bypass, we can try to change the request from **POST** to **GET**. We can do this by `Right click on request` -> Click `Change request method` option.
+
+Now it changes to a *GET* request,
+
+```http
+GET /admin-roles?username=carlos&action=upgrade HTTP/2
+Host: 0a6b00020427b34c8392bbf9005e002b.web-security-academy.net
+Cookie: session=T0lAJAlHhdoNt8LZIK7VB45FxcSyawzE
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Origin: https://0a6b00020427b34c8392bbf9005e002b.web-security-academy.net
+Referer: https://0a6b00020427b34c8392bbf9005e002b.web-security-academy.net/admin
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+Connection: close
+```
 
 
 
@@ -46,18 +95,9 @@ Nothing fishy.Now we have logged in as administrator.
 
 
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/b89d9c87-9794-47ff-8e4d-c2cccc6a13f7)
 
-We try to login to the website with credentials given `wiener:peter`.
 
-#### Request -
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/7b2e6343-5793-432d-8ff2-df657e1dbcf5)
 
-We don't see any suspicious headers.
-
-Next we try to update the email
-
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/dda04f86-8bac-4b38-ada4-f5ea4c5b8936)
 
 
