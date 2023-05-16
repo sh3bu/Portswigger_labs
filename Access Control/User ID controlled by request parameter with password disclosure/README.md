@@ -5,7 +5,7 @@
 
 ## Solution :
 
-The ccount page that contains the current user's existing password, prefilled in a masked input. So lets login as wiener to see what the account page has.
+The account page that contains the current user's existing password, prefilled in a masked input. So lets login as wiener to see what the account page has.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/7a204dc2-b5c9-48eb-aba9-1b3471346572)
 
