@@ -101,7 +101,7 @@ If we try to upgrade ourself(wiener) by changing the cookie value of admin to no
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/198cf809-3321-4308-885d-3793a6279362)
 
-But , if we try the same process in the second step  *ie* - Confirming the action step, we get a `302 - Redirect' which means we bypassed the acces control measure & upgraded the privilege of ourselves.
+But , if we try the same process in the second step  *ie* - `Confirming the action` step, we get a `302 - Redirect' which means we bypassed the acces control measure & upgraded the privilege of ourselves.
 
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/477fa30b-dc70-45a0-bb00-bfe6410bc936)
