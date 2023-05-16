@@ -13,8 +13,9 @@ Then we can play around with the requests by loggin in as wiener & exploiting th
 
 Once logged in , we can go to admin panel & modify other user's privileges.
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/480c8069-0754-4dc4-b94b-4004f735ac7d)
+We need to upgrade wiener as admin by flawed multistep process, so lets now poke around with carlos.
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/5bdb0c20-cff4-400b-9744-b231cfa22bd2)
 
 ```http
 POST /admin-roles HTTP/2
