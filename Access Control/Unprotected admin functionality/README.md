@@ -17,6 +17,7 @@ For that we can look for one of the common web directories like the **robots.txt
  
 #### robots.txt
  
+ 
 ![image](https://user-images.githubusercontent.com/67383098/237017303-78d344f9-93b9-4bed-8a35-44869a1f8172.png)
 
 We see a **disallowed login** entry here for the admin panel which is `/administrator-panel`.
