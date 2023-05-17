@@ -14,9 +14,9 @@
 
 #### Login as admin -
 
-First lets familiarize ourselves by loggin in as admin.
+First lets familiarize ourselves by logging in as admin.
 
-Clicking onm admin panel link after loggin in, takes us to this page where we can change privileges of a user.
+Clicking on admin panel link after logging in, takes us to this page where we can change privileges of a user.
 
 When we upgrade carlos user privileges, the request sent is as follows,
 
