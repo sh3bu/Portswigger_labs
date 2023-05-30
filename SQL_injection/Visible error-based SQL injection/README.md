@@ -1,0 +1,51 @@
+## Lab Description -
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/7b1dd11f-f3b1-440d-bb44-28ee670b8d81)
+
+
+## Overview -
+
+Misconfiguration of the database sometimes results in verbose error messages. These can provide information that may be useful to an attacker. For example, consider the following error message, which occurs after injecting a single quote into an id parameter: 
+
+```sql
+Unterminated string literal started at position 52 in SQL SELECT * FROM tracking WHERE id = '''. Expected char
+```
+
+We can induce the application to generate an error message that contains some of the data that is returned by the query. This effectively turns an otherwise blind SQL injection vulnerability into a "visible" one.
+
+One way of achieving this is to use the CAST() function, which enables you to convert one data type to another. For example, consider a query containing the following statement:
+
+**Resquest payload**
+
+```sql
+CAST((SELECT example_column FROM example_table) AS int)
+```
+
+Often, the data that you're trying to read is a string. Attempting to convert this to an incompatible data type, such as an int, may cause an error similar to the following: 
+
+**Response**
+
+```sql
+ERROR: invalid input syntax for type integer: "Example data"
+```
+
+> NOTE - This type of query may also be useful in cases where you're unable to trigger conditional responses because of a character limit imposed on the 
+> query. 
+
+
+## Solution - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
