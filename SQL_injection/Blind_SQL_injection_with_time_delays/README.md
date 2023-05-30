@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/67383098/235321557-05e2a6b3-b436-45af-ad3e-02bdedd91916.png)
 
-## Solution :
+## Overview :
 
  it is often possible to exploit the blind SQL injection vulnerability by triggering time delays conditionally, depending on an injected condition. Because SQL queries are generally processed synchronously by the application, delaying the execution of a SQL query will also delay the HTTP response. This allows us to infer the truth of the injected condition based on the time taken before the HTTP response is received.
 
@@ -20,6 +20,7 @@ Using this technique, we can retrieve data in the way already described, by syst
 ```sql
 '; IF (SELECT COUNT(Username) FROM Users WHERE Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') = 1 WAITFOR DELAY '0:0:{delay}'--
 ```
+## Solution :
 
 #### Cause a 10 sec delay in response -
 
