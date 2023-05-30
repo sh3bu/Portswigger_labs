@@ -57,6 +57,8 @@ Now we induced an error in the application and so we got an error response back 
 SELECT * FROM tracking WHERE id = 'e00R0OKbtGq3H944''
 ```
 
+Since we know what query is being made, now we can craft our payload using CAST conditional expresiions.
+
 
 
 
