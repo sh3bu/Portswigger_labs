@@ -5,7 +5,7 @@
 
 ## Solution :
 
-you can perform SQL injection attacks using any controllable input that is processed as a SQL query by the application. For example, some websites take input in **JSON or XML** format and use this to query the database.
+We can perform SQL injection attacks using any controllable input that is processed as a SQL query by the application. For example, some websites take input in **JSON or XML** format and use this to query the database.
 
 These different formats may even provide alternative ways for you to obfuscate attacks that are otherwise blocked due to WAFs and other defense mechanisms. Weak implementations often just look for common SQL injection keywords within the request, so you may be able to bypass these filters by simply encoding or escaping characters in the prohibited keywords. For example, the following XML-based SQL injection uses an XML escape sequence to encode the S character in SELECT: 
 
@@ -74,7 +74,7 @@ When testing sql injection query in `storeID`,
 
 Both show the same **403 Forbidden error**
 
-Why is is getting blocked?
+Why is it getting blocked?
 
 ```
 A web application firewall (WAF) will block requests that contain obvious signs of a SQL injection attack. You'll need to find a way to obfuscate your malicious query to bypass this filter. We recommend using the Hackvertor extension to do this. 
@@ -84,12 +84,12 @@ So we need to bypas WAF and execute our sql payload.
 
 ### Bypass WAF - 
 
-We need to Obfuscate out xml payload inorder to bypass WAF. As per lab description we'll use **Hackvector** for this
+We need to Obfuscate out xml payload inorder to bypass WAF. As per lab description we'll use **Hackvertor** for this
 
 > Hackvertor is a **tag-based conversion tool** that supports various escapes and encodings including HTML5 entities, hex, octal, unicode, url encoding etc. 
 > It uses **XML-like tags** to specify the type of encoding/conversion used.
 
-NOw select the payload -> Right click -> Extensions -> Hackvector -> Encode -> Hex entities
+NOw select the payload -> Right click -> Extensions -> Hackvertor -> Encode -> Hex entities
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/4a369c2a-2994-4aca-bd0b-bccaf97d8fc2)
 
