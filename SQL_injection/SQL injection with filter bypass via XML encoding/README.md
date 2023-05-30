@@ -136,7 +136,7 @@ UNION SELECT username || '~' || password FROM users
 
 After encoding it with hex entities by using hackvertor,
 
-**Response**
+**Request**
 
 ```
 POST /product/stock HTTP/2
