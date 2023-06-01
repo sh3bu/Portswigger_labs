@@ -75,6 +75,8 @@ The request to `/my-account` had the stay-logged-in cookie. Examining the cookie
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a852488d-6a9e-4a4f-8894-d403e31c2a3f)
 
+That hash is the  `Md5` hash of our password,
+
 
 
 
