@@ -105,11 +105,11 @@ Under Payload processing, add the following rules in order. These rules will be 
 
 So now we got the cookie & the lab is solved.
   
-Incase if yopu're curious of what the password is,
+Incase if you're curious of what the password is,
   
   - `Y2FybG9zOjY1NzlhOTJlN2Y1YWM3YzU3MDU1MTk2YjNhZmUzZGRk` = base64encode(carlos:6579a92e7f5ac7c57055196b3afe3ddd)
   where,
-  6579a92e7f5ac7c57055196b3afe3ddd = md5(montana)
+  `6579a92e7f5ac7c57055196b3afe3ddd` = md5(montana)
   
   ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/cc169072-fb3b-4d76-930c-b05c1a3a1ce8)
 
