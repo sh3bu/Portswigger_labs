@@ -13,8 +13,8 @@ Some websites attempt to prevent this by automatically logging a user out if the
 
 > Blog on **Burp Macros**  - https://akshita-infosec.medium.com/burp-macros-what-why-how-151df8901641
 
-![image](https://user-images.githubusercontent.com/67383098/227289657-069c4e20-8278-4f88-ab26-a31c499e30f3.png)
 
+![image](https://user-images.githubusercontent.com/67383098/227289657-069c4e20-8278-4f88-ab26-a31c499e30f3.png)
 ![image](https://user-images.githubusercontent.com/67383098/227290265-87208e48-0d4f-4a09-87eb-c4ea1bb6c9d3.png)
 ![image](https://user-images.githubusercontent.com/67383098/227290418-fd6d59c6-70a1-47d5-8b48-02f63a96da40.png)
 
@@ -42,5 +42,9 @@ Go back to details tab
 
 
 ![image](https://user-images.githubusercontent.com/67383098/227304247-5e258403-2d55-47ed-b1d9-601d99f09a9c.png)
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/4e8bbe7b-953a-4b2b-9306-2d220c8a9e8e)
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/367d9381-1602-45ad-8bf0-928d2990a503)
 
 
