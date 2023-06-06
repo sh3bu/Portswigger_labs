@@ -13,7 +13,7 @@ Some applications only allow *input that matches, begins with, or contains, a wh
    https://expected-host:fakepassword@evil-host
 ```
 
-- You can use the `#` character to indicate a URL fragment. For example:
+- You can use the `#` character to indicate a **URL fragment**. For example:
    
 ```http
 https://evil-host#expected-host
