@@ -7,7 +7,7 @@
 
 Some applications only allow *input that matches, begins with, or contains, a whitelist of permitted values*. In this situation, you can sometimes circumvent the filter by *exploiting inconsistencies in URL parsing. *
 
-   -  You can embed credentials in a URL before the hostname, using the @ character. For example:
+   -  You can **embed credentials in a URL before the hostname**, using the `@` character. For example:
     
     ```http
     https://expected-host:fakepassword@evil-host
