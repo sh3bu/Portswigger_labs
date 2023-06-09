@@ -48,13 +48,13 @@ Lets try giving `username@stock.weliketoshop.net`. Here we can also give **local
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/33026e91-a221-4e99-b0bf-b903ed50d075)
 
 
-The request is accepted & we get a 200 response back. Which means the username part is accepted by the application.
+The request is accepted & we get a 400 response back.This time it doesn't show the error `External stock check host must be stock.weliketoshop.net` ,which means the username part is accepted by the application.
 
 Changing it to localhost also gives a 200 OK response.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/97252e52-427c-4c6c-9352-2fd1038e6d3d)
 
-Next is to use the `# - URL fragment` to make the server not ton interpret  the part after the # as  a part of the request.
+Next is to use the `# - URL fragment` to make the server not to interpret  the part after the # as  a part of the request.
 
 Now when we give the i/p url as `http://localhost#@stock.weliketoshop.net`, we get this error - `External stock check host must be stock.weliketoshop.net`
 
