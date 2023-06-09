@@ -22,4 +22,4 @@ stockApi=http://192.168.0.68/admin
 ## Solution :
 
 
-
+In this lab, the admin interface is at **port 8080**
