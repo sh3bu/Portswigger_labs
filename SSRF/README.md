@@ -3,8 +3,11 @@
 - SSRF vulns & where to find them by **Detectify** - https://labs.detectify.com/2022/09/23/ssrf-vulns-and-where-to-find-them/
 - SSRF attacks via PDF generators by **Nahamsec & Cody Brocious** - https://docs.google.com/presentation/u/0/d/1JdIjHHPsFSgLbaJcHmMkE904jmwPM4xdhEuwhy2ebvo/edit
 
+## Tools -
 
-## Bypasses
+- SSRFmap - https://github.com/swisskyrepo/SSRFmap
+
+## Bypasses -
 
 #### Use Hostnames Instead of IPs
 Sometimes, the developers just banned the use of 169.254.169.254 directly. In that case, we can simply use hostnames that resolve to the same IP address. 
