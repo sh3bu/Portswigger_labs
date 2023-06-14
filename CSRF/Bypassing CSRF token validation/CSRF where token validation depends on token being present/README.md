@@ -44,7 +44,7 @@ Sec-Fetch-User: ?1
 Te: trailers
 
 email=test%40user.net&csrf=yYeftI49JgNBG10a0D6OlJekl0EIGgRt
-``
+```
 
 In this POST request, the csrf token is sent along with the email parameter in the body of the request.
 
