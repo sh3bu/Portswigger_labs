@@ -84,7 +84,8 @@ email=test%40user.net&csrf=V7b2azJ1ChGis7L0p2dCyFazJpCWoFMP
 
 Now we should try to change the value of carlos's csrf token & replace it with wiener's.
 
-````http
+```
+http
 POST /my-account/change-email HTTP/2
 Host: 0ab100cd04c72c3b82e93e0b0079000e.web-security-academy.net
 Cookie: session=x4B7o8ZwRIVNSEkvEiyDDuuJ2dQEmqHI
