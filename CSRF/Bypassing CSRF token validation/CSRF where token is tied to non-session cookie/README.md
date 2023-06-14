@@ -30,3 +30,49 @@ could be leveraged to place a cookie that is submitted to secure.normal-website.
 
 ## Solution :
 
+**First let's login as wiener -**
+
+- On viewing the page source, we can fint he csrf token of wiener - `ZvJ76rK5LcD1LqPUkIRLAjmEptJMIFon`
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/021d2c3a-ea2f-4120-964c-20bb29300dfb)
+
+- Click on inspect element & we can see that in the cookies we have the csrfkey - `wa8IFRWwagWFenyNJRLtl342K9U5uikc`
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/1c63b2c5-e8ad-48d2-98ac-87a274abeaed)
+
+
+**Log in as carlos -**
+
+Open a incognito tab and login as carlos.
+
+Update carlos's email & capture the request,
+
+```http
+POST /my-account/change-email HTTP/2
+Host: 0ae700c80376e89582c41b7200b8004a.web-security-academy.net
+Cookie: session=RXZrYLgsaGTzXBCU1EKoEmhCU1scqX6W; csrfKey=nKlGR3jzyFUMsIPM7RJ8ZxDE6yHSP2k7
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 59
+Origin: https://0ae700c80376e89582c41b7200b8004a.web-security-academy.net
+Dnt: 1
+Referer: https://0ae700c80376e89582c41b7200b8004a.web-security-academy.net/my-account?id=carlos
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+email=test%40test.com&csrf=LcvnVlPGvy3TnwCkfhhKPe60IEu1JcAD
+```
+
+- Carlos's csrfkey - `nKlGR3jzyFUMsIPM7RJ8ZxDE6yHSP2k7`
+- Carlos's csrf token - `LcvnVlPGvy3TnwCkfhhKPe60IEu1JcAD`
+
+Let's try to replace the csrf token and csrf key of carlos with that of wiener's to see if we can bypass the csrf protection by providing another pair/set of valid tokens.
+
+
