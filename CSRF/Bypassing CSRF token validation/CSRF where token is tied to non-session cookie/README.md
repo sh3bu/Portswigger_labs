@@ -1,7 +1,12 @@
 ## Lab Description :
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/9b0fa0fc-3538-47a6-9c76-28553367992f)
 
-CSRF token is tied to a non-session cookie
+
+
+## Overview :
+
+**CSRF token is tied to a non-session cookie -**
 
 In a variation on the preceding vulnerability, some applications do tie the CSRF token to a cookie, but not to the same cookie that is used to track sessions. This can easily occur when an application employs two different frameworks, one for session handling and one for CSRF protection, which are not integrated together:
 ```http
@@ -20,7 +25,8 @@ This situation is harder to exploit but is still vulnerable. If the web site con
 leveraged to set cookies in the application that is being targeted, if the cookie that is controlled has suitable scope. For example, a cookie-setting function on staging.demo.normal-website.com
 could be leveraged to place a cookie that is submitted to secure.normal-website.com. 
 
-## Overview :
+**Some times csrf token is tied to a cookie but this cookie is not related to the session of the user. This happens because the application uses 2 different frameworks one for session handling and one for csrf protection and both aren't integrated together.**
+
 
 ## Solution :
 
