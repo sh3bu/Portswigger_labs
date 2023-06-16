@@ -44,7 +44,7 @@ Connection: close
 email=user%40user.net
 ```
 
-Notice that **there is no csrf token or any Samesite cookie**. MOst probably it is validating the request by using **Referrer Header**.
+Notice that **there is no csrf token or any Samesite cookie**. Most probably it is validating the request by using **Referrer Header**.
 
 Send the request to POC generator & add the following line to tell the application to ignore Referrer header.
 
