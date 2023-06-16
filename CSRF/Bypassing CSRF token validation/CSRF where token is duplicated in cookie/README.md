@@ -88,20 +88,20 @@ To change the csrfkey value we need to perform **Host Header Injection** to inje
 
 #### Injecting csrfkey cookie value -
 
-We need to find any functionality that takes user input. IN this case, we have a search functionality.
+We need to find any functionality that takes user input. In this case, we have a search functionality.
 
 If we search for any term , we can see from the response that the search we used is getting added as a cookie - `Set-Cookie: LastSearchTerm=hello`
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/15699775-2df8-4922-8c3c-c47762559c15)
 
 
-So with this we can try to inject the csrfkey value.
+So with this we can try to inject the csrf cookie value.
 
 Use this payload query in the search parameter of the request - `/?search=test%0d%0aSet-Cookie:%20csrf=anytoken%3b%20SameSite=None` which decodes to `/?search=test Set-Cookie: csrf=anytoken; SameSite=None`
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/bb314731-0f4c-4d08-8c49-92fc79031406)
 
-From the response we can confirm that we can inject the csrfkey value by HTTP header injection.
+From the response we can confirm that we can inject the csrf cookie value by HTTP header injection.
 
 #### Generate csrf POC -
 
@@ -129,7 +129,7 @@ email=pwned%40user.net&csrf=anytoken
 
 Send this request to CSRF POC generator. 
 
-> Note that we have only changed the csrf token value to **anytoken**. The csrfkey value is still the same. It will have to be injected into victim's session. For this we can use a `<img>` tag, where we load the url along with HTTP header injection payload to inject the csrfkey value as anytoken . Since there is no image in that url , it will trigger an error. On error it will submit the form.
+> Note that we have only changed the csrf token parameter value to **anytoken**. The csrf cookie value is still the same. It has to be injected into victim's session. For this we can use a `<img>` tag, where we load the url along with HTTP header injection payload to inject the csrfkey value as anytoken . Since there is no image in that url , it will trigger an error. On error it will submit the form.
 
 
 ```html
