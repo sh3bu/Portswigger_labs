@@ -115,7 +115,7 @@ We can override this by providing `Referrer-Policy: unsafe-url` header.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/5371d3da-4152-4027-b71f-40368e4c1235)
 
-Now deliver the exploitto victim to solve the lab.
+Now deliver the exploit to victim to solve the lab.
 
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/cd8488ee-3824-43a9-8834-b8a1a8231f43)
