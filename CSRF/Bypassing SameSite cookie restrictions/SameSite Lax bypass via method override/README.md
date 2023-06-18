@@ -1,5 +1,7 @@
 ## Lab Description :
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/1a9a6cf7-580e-41d3-95d4-91589742bcfc)
+
 
 ## Overview :
 
@@ -27,3 +29,5 @@ Even if an ordinary GET request isn't allowed, some frameworks provide ways of o
 Other frameworks support a variety of similar parameters. 
 
 ## Solution :
+
+
