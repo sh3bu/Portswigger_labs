@@ -32,3 +32,37 @@ SameSite works by enabling browsers and website owners to limit which cross-site
 - `Set-Cookie: session=0F8tgdOhi9ynR1M9wa3ODa; SameSite=Strict`
 
 > If the website issuing the cookie doesn't explicitly set a SameSite attribute, Chrome automatically applies Lax restrictions by default.
+
+
+#### Strict -
+
+If a cookie is set with the `SameSite=Strict` attribute, **browsers will not send it in any cross-site requests**. In simple terms, this means that **if the target site for the request does not match the site currently shown in the browser's address bar, it will not include the cookie**.
+
+This is recommended when setting cookies that enable the bearer to modify data or perform other sensitive actions, such as accessing specific pages that are only available to authenticated users.
+
+Although this is the most secure option, it can negatively impact the user experience in cases where cross-site functionality is desirable.
+
+#### Lax
+
+Lax SameSite restrictions mean that **browsers will send the cookie in cross-site requests**, but only if both of the following conditions are met:
+
+    - The request uses the _GET_ method.
+
+    - The request resulted from a top-level navigation by the user, such as clicking on a link.
+
+This means that the cookie is not included in cross-site POST requests, for example. As POST requests are generally used to perform actions that modify data or state (at least according to best practice), they are much more likely to be the target of CSRF attacks.
+
+Likewise, the cookie is not included in background requests, such as those initiated by scripts, iframes, or references to images and other resources. 
+
+#### None
+
+If a cookie is set with the SameSite=None attribute, this effectively disables SameSite restrictions altogether, regardless of the browser. As a result, browsers will send this cookie in all requests to the site that issued it, even those that were triggered by completely unrelated third-party sites.
+
+> With the exception of Chrome, this is the default behavior used by major browsers if no SameSite attribute is provided when setting the cookie. 
+
+>  When **setting a cookie with `SameSite=None`**, the **website must also include the Secure attribute**, which ensures that the cookie is only sent in encrypted messages over HTTPS. Otherwise,
+>  browsers will reject the cookie and it won't be set.
+
+```html
+Set-Cookie: trackingId=0F8tgdOhi9ynR1M9wa3ODa; SameSite=None; Secure
+```
