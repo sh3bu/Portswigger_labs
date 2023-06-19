@@ -122,6 +122,13 @@ The above reference tells us how we can overrride a HTTP request.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/e4a70c67-5c03-4fe8-b799-19f9204e5f95)
 
+And also ,
+
+> Note: Chrome will make an exception for cookies set without a SameSite attribute less than 2 minutes ago. Such cookies will also be sent with non-idempotent
+> (e.g. POST) top-level cross-site requests despite normal SameSite=Lax cookies requiring top-level cross-site requests to have a safe (e.g. GET) HTTP method.
+>  1`Support for this intervention ("Lax + POST") will be removed in the future.
+
+
 So in our final payload, we change the request method - `method="GET"` & then we include a hidden input form (ie.) - `<input type="hidden" name="_method" value="PUT">` inside the form to override the request method.
 
 
