@@ -66,3 +66,9 @@ If a cookie is set with the SameSite=None attribute, this effectively disables S
 ```html
 Set-Cookie: trackingId=0F8tgdOhi9ynR1M9wa3ODa; SameSite=None; Secure
 ```
+
+
+# Reference articles :
+
+- https://web.dev/samesite-cookies-explained/
+- https://medium.com/@renwa/bypass-samesite-cookies-default-to-lax-and-get-csrf-343ba09b9f2b
