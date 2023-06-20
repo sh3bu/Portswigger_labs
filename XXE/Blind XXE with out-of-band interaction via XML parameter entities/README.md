@@ -68,7 +68,8 @@ First we will declare a DOCTYPE eith parameterized entitites (**%**) which conta
 </stockCheck>
 ```
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/f98c7499-02d8-4509-a1f6-e783c7cd495d)
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/62ac4c21-2258-4736-a8e8-519399b87b8e)
 
 In the response it says that - `XML parsing error` but it means that the xml parser indeed parsed the xml code and made an outbound request to our collaborator server.
 
@@ -76,6 +77,7 @@ In the response it says that - `XML parsing error` but it means that the xml par
 
 And we've solved the lab !
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/9cd32a23-285d-4267-9cfd-64c3959a5f99)
 
 
 
