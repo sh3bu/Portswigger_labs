@@ -68,7 +68,7 @@ First we will declare a DOCTYPE eith parameterized entitites (**%**) which conta
 </stockCheck>
 ```
 
-"XML parsing error"
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/f98c7499-02d8-4509-a1f6-e783c7cd495d)
 
 In the response it says that - `XML parsing error` but it means that the xml parser indeed parsed the xml code and made an outbound request to our collaborator server.
 
