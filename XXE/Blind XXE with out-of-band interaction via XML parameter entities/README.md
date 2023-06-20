@@ -1,6 +1,6 @@
 ## Lab Description :
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/aa4f23ae-5538-4b0d-ad81-5c3fd061b2cf)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/c5a92d04-f21e-4e32-b91a-f7e6893f7f0e)
 
 ## Overview :
 
