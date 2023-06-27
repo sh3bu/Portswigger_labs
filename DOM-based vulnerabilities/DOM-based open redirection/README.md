@@ -54,3 +54,16 @@ In HTTP  history , we can see this request being made.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/d08afc28-f8b0-494c-ba6d-f99e3457e40e)
 
+#### Find the DOM based open-redirect -
+
+
+Clicking on `View-Source` , we can see there is this line of code which redirects us to home apge.
+
+```html
+<div class="is-linkback">
+     <a href='#' onclick='returnUrl = /url=(https?:\/\/.+)/.exec(location); location.href = returnUrl ? returnUrl[1] : "/"'>Back to Blog</a>
+</div>
+```
+
+From this we can understand that **there is a  `?url=` parameter takes the url location & redirects us to `/` whcih is the home page.**
+
