@@ -67,3 +67,14 @@ Clicking on `View-Source` , we can see there is this line of code which redirect
 
 From this we can understand that **there is a  `?url=` parameter takes the url location & redirects us to `/` whcih is the home page.**
 
+#### Exploit -
+
+So inorder to exploit this, add exploit server's address in the url with `&url=` parameter.
+
+```
+https://websecurity-academy.net/post?postId=8&url=https://exploit-0a37003a036d46cd81eece8d01c4009b.exploit-server.net/
+```
+
+Click enter & the lab is solved.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/faba2553-6877-47d5-837c-9c5a50933182)
