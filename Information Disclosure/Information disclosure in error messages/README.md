@@ -48,7 +48,7 @@ Internal Server Error: java.lang.NumberFormatException: For input string: "'"
 
 Apache Struts 2 2.3.31
 ```
-At the end of the response, we have the name & version of the software that is being used in the abckend - `Apache Struts 2 2.3.31`
+At the end of the response, we have the name & version of the software that is being used in the backend - `Apache Struts 2 2.3.31`
 
 Submit the answer to solve the lab.
 
