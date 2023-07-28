@@ -82,10 +82,10 @@ The file avatars/file.php has been uploaded.
 </p>
 ```
 
+Once uploaded , right click on the image and open in new  tab. From the url we can understand that it is loading the file from `/files/avatars/file.php`
 
-Note that the file has been uploaded at `avatars/file.php`.
 
-Now change the request method to GET with the url **files/avatars/file.php**.
+So change the request method to GET with the url **files/avatars/file.php**.
 
 ```
 GET /files/avatars/file.php HTTP/2
@@ -104,7 +104,7 @@ Sec-Fetch-Site: same-origin
 Sec-Fetch-User: ?1
 Te: trailers
 ```
-When the file is fetched, we can see the secret file's contents in the response. It means htat the file got saved &n executed at the backend.
+When the file is fetched, we can see the secret file's contents in the response. It means that the file got saved & got processed at the backend.
 
 ```
 HTTP/2 200 OK
