@@ -4,7 +4,7 @@
 
 ## Overview :
 
-### Obfuscating file extensions
+**Obfuscating file extensions -**
 
 Even the most exhaustive blacklists can potentially be bypassed using **classic obfuscation techniques**. Let's say the validation code is case sensitive and **fails to recognize that `exploit.pHp` is in fact a `.php` file**. If the code that subsequently maps the file extension to a MIME type is not case sensitive, this discrepancy allows you to sneak malicious PHP files past validation that may eventually be executed by the server. 
 
@@ -23,6 +23,8 @@ Even the most exhaustive blacklists can potentially be bypassed using **classic 
 ## Solution :
 
 Log in as wiener using the credentials provided. Upload a *.php* file with the contents : `<?php echo file_get_contents('/home/carlos/secret'); ?>`
+
+### Uploading .php file -
 
 The following is the POST request sent when uploading an avatar.
 
@@ -66,18 +68,22 @@ Since we uploaded a .php file we get a response stating that only JPG & PNG file
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/5d8f3d8a-d0ab-42a0-b17f-75a1c5d6a92f)
 
+### Uploading .php.jpg file - 
 
 So I tried various obfuscating ways but he one that worked for me is changeing the filename parameter to - `filename="read.php.jpg"` 
 
 The server just checks that it ends with *.jpg* , if YES then the file is uploaded. This is a very weak defense mechanism being implemented.
 
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/e254d0d3-d027-463d-b226-f792c23981e1)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/6411ad7b-a50d-44af-ae1f-fb486cbb9765)
+
 
 But when we try to access the file, we get this error
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/efe5b6b6-770c-4ee5-8bc8-160edd4bd3ef)
 
 Thjs is beacuse the file is saved with .jpg extension, so the server is facing error when processing it since it considers it as a jpg file.
+
+### Uplaoding .php%00.jpg file
 
 To prevent this , we need to somehow make the server execute this as a .php file. For this we can use `%00` **nullbyte** character before the extension.
 
