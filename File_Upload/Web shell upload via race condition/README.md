@@ -204,7 +204,7 @@ In the results list, there some of the **GET requests received a 200 response** 
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/9bad09c4-2884-4194-b49d-e3efe6f2cc5a)
 
-Submit hte secret to solve the lab.
+Submit the secret to solve the lab.
 
 SECRET - `2ytyOEzFnkFGyh9rKrJvEZHqBZs0p534`
 
