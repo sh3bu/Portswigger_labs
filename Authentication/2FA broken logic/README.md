@@ -1,6 +1,6 @@
 ## Lab Description :
 
-![image](https://user-images.githubusercontent.com/67383098/226839820-78ba86ee-d4c7-4ba2-822b-c1da923302bc.png)
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/604f691e-e555-4045-bded-067900fb092d)
 
 ## Solution :
 
