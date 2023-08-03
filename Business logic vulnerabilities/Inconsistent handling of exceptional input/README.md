@@ -6,6 +6,13 @@
 
 ### Finding  admin panel -
 
+First we need to find the  URI of the admin panel  inorder to delete the user carlos.
+
+Go to **Target -> Sitemap.** Right click on the lab domain & select **Engagement tools -> Discover content.** to find what pages and directories are available in the website.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/6c3e8ef2-5155-4b82-800d-9d54e711e63e)
+
+
 When we try to browse to `/admin`, it says onnly persons belonging to `DontWannaCry` company can access this page.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/4f39aa52-0b24-48de-b792-0878bdd498ab)
@@ -53,7 +60,7 @@ aafafasighfiyuqabryuawgfibasifnkajsdbgiuafgijaeboifnaijfaokjfiuahfjiahgr90ipqjro
 
 ### Register an account with @dontwannacry.com -
 
-Now taking note of this behaviour, we can create a new account with **more than 255 characters long but  when the application truncates it, the last cahracters should be @dontwannacry.com**
+Now taking note of this behaviour, we can create a new account with **more than 255 characters long & ends with our email-id but  when the application truncates it, the last characters should be @dontwannacry.com**
 
 The email id to be used now is 
 
