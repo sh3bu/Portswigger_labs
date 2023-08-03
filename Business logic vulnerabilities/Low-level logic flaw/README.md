@@ -46,7 +46,7 @@ Send the request to intruder.
 
  ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/a9aad06f-5bae-4b90-96ed-0214d1c33936)
 
-> Under `Resource Pool`, set `concurrent requests= 1`
+> Under `Resource Pool`, set `maximum concurrent requests= 1`
 
 Now click on start attack.
 
