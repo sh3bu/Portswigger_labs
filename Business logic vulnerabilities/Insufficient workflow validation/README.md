@@ -18,7 +18,7 @@ So we need to abuse the flawed workflow while ordering a product to solve this l
 
 ### Workflow
 
-First login as wiener .Click on the leather jacket product & add the item to cart.
+1. First login as wiener .Click on the leather jacket product & add the item to cart.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/97324883-e8e7-49a9-b5bd-71454da7a77a)
 
@@ -51,7 +51,7 @@ In the cart page, we can see that the product is added & we can now place the or
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/dd59c3aa-f1c2-4d7f-8dd5-ad3690723c21)
 
-When we place the order the following POST request is sent to `/cart/checkout`.
+2. When we place the order the following POST request is sent to `/cart/checkout`.
 
 ```http
 POST /cart/checkout HTTP/2
