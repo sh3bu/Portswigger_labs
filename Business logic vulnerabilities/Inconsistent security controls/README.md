@@ -26,7 +26,7 @@ Thinking from an attacker's perspective, we can understand that the the site che
 
 On analysing the requests which is been sent, we don't see any suspicious paramters . So it is  definitly checking the email-d.
 
-Since we have an option to update our email, **why not change itattacker@exploit-0a4c008d03485779833ef97d01750004.exploit-server.net to `attacker@dontwannacry.com`?**
+Since we have an option to update our email, **why not change it from `attacker@exploit-0a4c008d03485779833ef97d01750004.exploit-server.net` to `attacker@dontwannacry.com`?**
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/24e67979-1dc1-4536-a349-e9bf4351031d)
 
