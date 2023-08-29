@@ -4,7 +4,7 @@
 
 ## Solution :
 
-The search term is reflected in the page response embedded within <h1> tags.
+The search term is reflected in the page response embedded within `<h1>` tags.
 
 ```js
 <h1>5 search results for 'Hi'</h1>
