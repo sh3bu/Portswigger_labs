@@ -69,6 +69,20 @@ POST /gift-card
 
 - In the Macro Editor, click `Test macro`. Look at the response to `GET /cart/order-confirmation?order-confirmation=true` and note the gift card code that was generated. Look at the `POST /gift-card request`. Make sure that the gift-card parameter matches and confirm that it received a 302 response. Keep clicking "OK" until you get back to the main Burp window.
 
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/49a5c2c9-e0f7-466b-8e7f-e2aba09a6700)
+
+
 - Send the `GET /my-account` request to Burp Intruder. Use the `Sniper` attack type.
 
-- On the "Payloads" tab, select the payload type `Null payloads`. Under "Payload settings", choose to generate **412 payloads**. 
+- On the "Payloads" tab, select the payload type `Null payloads`. Under "Payload settings", choose to generate **420 payloads**.
+
+Now start the attack. It takes some time to run.
+
+Once completed, we see that we have $1427 credits. 
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/02a9f563-e97a-40b1-9e8a-95bd7a70c7de)
+
+Now we can buy the leet jacket  & solve the lab.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/3ac5e970-f7bf-44d5-a80e-a283ea150403)
+
