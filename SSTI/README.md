@@ -1,5 +1,9 @@
+## Popular templating frameworks -
+
 > Python - Jinja, Django, Mako
+> 
 > PHP    - Smarty, Twig
+> 
 > Java   - Apache Freemaker , Apache Velocity
 
 
