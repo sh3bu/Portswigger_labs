@@ -24,7 +24,7 @@ Entering the payload - `${{<%[%'"}}%\.` in one of the template expressions resul
 
 Taking a close look at the error, we can understand that it uses **django template**.
 
-### RCE -
+### Retreive sensitive info -
 
 > Payload all the things - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md#django-templates
 
