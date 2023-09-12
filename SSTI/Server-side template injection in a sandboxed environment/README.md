@@ -20,4 +20,4 @@ As per the lab description we know the follwoing,
 - 
 - sandbox environment. 
 
-[click here](javascript;alert(1))
+[click here](javascript:alert(1))
