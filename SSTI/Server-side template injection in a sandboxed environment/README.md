@@ -14,3 +14,8 @@ For example, in the Java-based template engine Velocity, you have access to a Cl
 $class.inspect("java.lang.Runtime").type.getRuntime().exec("bad-stuff-here")
 ```
 ## Solution :
+
+As per the lab description we know the follwoing,
+
+- 
+- sandbox environment. 
