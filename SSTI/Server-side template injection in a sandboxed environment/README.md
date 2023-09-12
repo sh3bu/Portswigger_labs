@@ -17,7 +17,6 @@ $class.inspect("java.lang.Runtime").type.getRuntime().exec("bad-stuff-here")
 
 As per the lab description we know the follwoing,
 
-- 
+- Freemarker template is used.
 - sandbox environment. 
 
-[click here](javascript:alert(1))
