@@ -15,8 +15,18 @@ $class.inspect("java.lang.Runtime").type.getRuntime().exec("bad-stuff-here")
 ```
 ## Solution :
 
-As per the lab description we know the follwoing,
+As per the lab description we know the following,
 
 - Freemarker template is used.
 - sandbox environment. 
 
+#### Identifying the version of Freemarker -
+
+We can find the version of Freemarker being used by using the following command.
+
+```java
+<#assign freemarkerVersion = .version>
+FreeMarker version: ${freemarkerVersion}
+```
+
+On previewing it, we came to know that it is  `FreeMarker version: 2.3.29 `
