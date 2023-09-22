@@ -37,6 +37,8 @@ Sec-Fetch-Mode: navigate
 Sec-Fetch-Site: cross-site
 Sec-Fetch-User: ?1
 ```
+> Note that this Oauth flow to add social media **does not contain any `state=` parameter. So this is vulnerable to CSRF attacks**
+
 Now the Oauth service redirects us to the social media login page & asks us for username and password.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/09eea3bc-0ac7-417f-9806-17092344680a)
@@ -93,6 +95,8 @@ Once the flow is over, we have added our social media account & now we can login
 ### Exploitation 
 
 Since the Oauth flow for adding social media to our account **doesn't have any `state=` parameter, we can perform a csrf attack to link somebody else's social media to our account.**
+
+Then we can login to our account via social media & we would have logged in to the victim's account who clicked our CSRF POC script.
 
 #### Steps -
 
