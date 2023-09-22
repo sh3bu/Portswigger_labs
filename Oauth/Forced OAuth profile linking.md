@@ -43,7 +43,7 @@ Now the Oauth service redirects us to the social media login page & asks us for 
 
 The request sent is as follows,
 
-```
+```http
 POST /interaction/h_HZHJFwu5SNlmERnvvAu/login HTTP/1.1
 Host: oauth-0afa007604f736b180a029a002b300ad.oauth-server.net
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/117.0
