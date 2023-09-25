@@ -91,7 +91,7 @@ So the secret used here is - **secret1**.
 1. In the Payload section, change `"sub": "wiener"` to `"sub": "administrator"` .
 2. Go to **JWT Editor**, and specify the secret-key which we found - `secret1`
    ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/0ac41f56-d0c4-4fa8-908a-2f8b2f0d088b)
-3. Now go to *JASON WEB TOKEN* tab & sign the key.
+3. Now go to *JSON WEB TOKEN* tab & sign the key.
    ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/8997a258-237e-4480-a8e8-982eba0e1c1e)
 
 This is the resulting JWT token.
