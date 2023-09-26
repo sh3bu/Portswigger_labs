@@ -73,15 +73,6 @@ Generate the key & replace the secret as `AA==`.
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/b8255235-44cb-48b6-8853-93ac8154c240)
 
-Click on Generate . The key is as follows,
-
-```
-{
-    "kty": "oct",
-    "kid": "e7758479-c636-410b-85a7-eaa566905f96",
-    "k": "AA=="
-}
-```
 **Now the file that the kid points is null & so we can now sign the token with a empty string & it is still valid !!**
 
 We now have the following JWT.
