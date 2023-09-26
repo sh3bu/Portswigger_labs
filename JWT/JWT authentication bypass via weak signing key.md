@@ -14,6 +14,9 @@ Hashcat command to bruteforce secret keys -
 
 ## Solution :
 
+> The server uses an extremely weak secret key to both sign and verify tokens. This can be easily brute-forced using a wordlist of
+> common secrets. 
+
 Login as wiener using the provided credentials.
 
 In the *HTTP history* tab , we can see that the 3 following requests have JWT.
