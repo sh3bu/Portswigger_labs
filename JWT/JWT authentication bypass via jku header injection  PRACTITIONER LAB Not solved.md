@@ -102,10 +102,13 @@ Decode the JWT using [jwt.io](https://jwt.io/)
 1. Send the */admin* request to repeater.
 2. Open the `JSON Web Token` tab & make the following changes
    - Header section :
-           1. Replace the current value of the `kid` parameter with the `kid` of the JWK that we just created and uploaded in the exploit server. In my case it is - `9ecb48b3-3bd6-4285-8533-4b8277941425`
-           2. Add a `JKU` key with the value - `https://exploit-0ac400c304e2c5ec801a7a8801a300b8.exploit-server.net/exploit`.
+
+     1. Replace the current value of the `kid` parameter with the `kid` of the JWK that we just created and uploaded in the exploit server. In my case it is - `9ecb48b3-3bd6-4285-8533-4b8277941425`
+           
+     2. Add a `JKU` key with the value - `https://exploit-0ac400c304e2c5ec801a7a8801a300b8.exploit-server.net/exploit`.
 
    - Payload section :
+     
            1. Change the value of `"sub": "wiener"` to `"sub": "administrator"`.
 3. Now both the header & payload part looks as follows,
 
