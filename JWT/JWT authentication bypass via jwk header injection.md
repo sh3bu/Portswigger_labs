@@ -37,6 +37,9 @@ The `jwk` header paramete can be used to embed their public key directly within 
 
 ## Solution :
 
+> The server supports the jwk parameter in the JWT header. This is sometimes used to embed the correct verification key
+> directly in the token. However, it fails to check whether the provided key came from a trusted source. 
+
 Login as wiener using the credentials provided.
 
 Since we are a normal user we're not able to view the **/admin** panel.
