@@ -11,11 +11,25 @@ The search term is reflected in the page response embedded within `<h1>` tags.
 ```
 When we enter `<script>`in the search field, it gets blocked.
 
-### Finding the tags that are allowed -
+### Use custom tags -
 
-Send the request to repeater and add the payload position as follows.
+The search url is as follows - 
 
 ```
-GET /?search=§hi§ HTTP/1.
+https://0a96000b03ae5d4b80e03a7000a2002d.web-security-academy.net/?search=hello
 ```
 
+We can use the following payload to pop an alert with document.cookie.
+
+```html
+<shebu onfocus=alert(document.cookie)  tabindex=1 id=1';
+```
+
+- `shebu` - custom tag.
+- `onfocus=alert(document.cookie)` - whenever the particular tabindex is focussed, it will trigger a alert.
+- `tabindex=1` - when tab in pressed 1 time , it will get selected.
+- `id=1` - this will help us to specify which tabindex to use.
+
+  ### Final payload -
+
+  
