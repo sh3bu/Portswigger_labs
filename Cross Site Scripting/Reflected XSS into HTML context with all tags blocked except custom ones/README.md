@@ -16,8 +16,6 @@ When we enter `<script>`in the search field, it gets blocked.
 Send the request to repeater and add the payload position as follows.
 
 ```
-GET /?search=%3C§§%3E HTTP/1.
-``
-Start the attack.
+GET /?search=§hi§ HTTP/1.
+```
 
-Once the attack is finished, 
