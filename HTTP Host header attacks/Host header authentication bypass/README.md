@@ -1,4 +1,4 @@
-![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/e1744c45-86d6-4c39-a418-70c23599b31f)## Lab Description :
+## Lab Description :
 
 ![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/fa662ef2-4898-4b83-baba-5b5fb8b65002)
 
