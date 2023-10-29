@@ -12,7 +12,7 @@ https://0afa00c303a959438002801500a90058.web-security-academy.net/filter?categor
 
 The backend MongoDB query might look something like - 
 ```mongodb
-this.category == 'fizzy'
+this.category == 'fizzy' && this.released == 1
 ```
 
 Injecting an single quote (`'`) , makes the application to throw an verbose error, which says that it uses mongodb in the backend.
@@ -24,7 +24,7 @@ So we can use operator injection to evaluate the query to true & display all the
 
 The query will now be executed as follows
 ```mongodb
-this.category == 'fizzy' || '1'=='1'
+this.category == 'fizzy' || '1'=='1'  && this.released == 1
 ```
 
 Now we can see all the items & the lab is solved.
