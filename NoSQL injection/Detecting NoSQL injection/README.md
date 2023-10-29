@@ -15,6 +15,11 @@ The backend MongoDB query might look something like -
 this.category == 'fizzy'
 ```
 
+Injecting an single quote (`'`) , makes the application to throw an verbose error, which says that it uses mongodb in the backend.
+
+![image](https://github.com/sh3bu/Portswigger_labs/assets/67383098/4599afe2-d810-4fa3-905b-95b29087c343)
+
+
 So we can use operator injection to evaluate the query to true & display all the products(both released & not released). - `' || '1' == '1`
 
 The query will now be executed as follows
