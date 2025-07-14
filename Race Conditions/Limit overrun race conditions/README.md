@@ -1,6 +1,6 @@
 ## Lab Description :
 
-![image](https://github.com/user-attachments/assets/90cb3f2d-a56b-4616-b397-54139352e225)
+<img width="1153" height="536" alt="image" src="https://github.com/user-attachments/assets/3d26edc0-b271-4bd4-99c6-9fa49b0822e7" />
 
 ## Solution :
 
