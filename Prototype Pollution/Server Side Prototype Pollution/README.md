@@ -21,3 +21,16 @@ for(const propertyKey in myObject){
 
 // Output: a, b, foo
 ```
+This also applies to arrays, where a for...in loop first iterates over each index, which is essentially just a numeric property key under the hood, before moving on to any inherited properties as well.
+```js
+const myArray = ['a','b'];
+Object.prototype.foo = 'bar';
+
+for(const arrayKey in myArray){
+    console.log(arrayKey);
+}
+
+// Output: 0, 1, foo
+```
+
+In either case, if the application later includes the returned properties in a response, this can provide a simple way to probe for server-side prototype pollution. 
